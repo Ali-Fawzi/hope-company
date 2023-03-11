@@ -15,12 +15,34 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::namespace('applicant')->prefix('applicant')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('pages.applicant.dashboard');
+    })->name('applicant.dashboard');
+})->middleware(['auth', 'verified']);
+
+Route::namespace('manager')->prefix('manager')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('pages.manager.dashboard');
+    })->name('manager.dashboard');
+})->middleware(['auth', 'verified']);
+
+Route::namespace('supervisor')->prefix('supervisor')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('pages.supervisor.dashboard');
+    })->name('supervisor.dashboard');
+})->middleware(['auth', 'verified']);
+
+Route::namespace('salesPerson')->prefix('salesPerson')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('pages.salesPerson.dashboard');
+    })->name('salesPerson.dashboard');
+})->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
