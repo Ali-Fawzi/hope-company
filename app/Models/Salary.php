@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Salary extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+
+
     public function user(): belongsTo
     {
         return $this->belongsTo(User::class);

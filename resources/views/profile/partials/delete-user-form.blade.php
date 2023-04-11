@@ -12,7 +12,7 @@
     <div class="flex items-center gap-4">
         <x-danger-button
             x-data=""
-            x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
+            x-on:click.prevent="$dispatch('open-modal', { name: 'confirm-user-deletion'})"
         >{{ __('احذف الحساب') }}</x-danger-button>
     </div>
 

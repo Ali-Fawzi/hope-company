@@ -1,4 +1,4 @@
-@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-sky-300'])
+@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-gradient-to-br from-sky-300 to-blue-300'])
 
 @php
 switch ($align) {

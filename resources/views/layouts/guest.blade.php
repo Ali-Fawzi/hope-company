@@ -17,7 +17,7 @@
     </head>
     <body class="bg-sky-100 flex flex-col min-h-screen font-arabic">
             <main class="flex flex-grow flex-col sm:justify-center mt-24 md:mt-16 lg:mt-0 items-center pt-6">
-                <div class="w-full sm:max-w-md px-6 py-4 shadow-xl bg-blue-300 overflow-hidden sm:rounded-lg mt-10">
+                <div class="w-full sm:max-w-md px-6 py-4 shadow-xl bg-gradient-to-br from-sky-300 to-blue-300 overflow-hidden sm:rounded-lg mt-10">
                     {{ $slot }}
                 </div>
             </main>

@@ -1,14 +1,5 @@
 <x-app-layout>
-    <x-slot name="navLinks">
-        <x-nav-link :href="route(Auth::user()->user_type.'.dashboard')" :active="request()->routeIs(Auth::user()->user_type.'.dashboard')">
-            {{ __('الصفحة الرئيسية') }}
-        </x-nav-link>
-    </x-slot>
-    <x-slot name="responsiveNavLinks">
-        <x-responsive-nav-link :href="route(Auth::user()->user_type.'.dashboard')" :active="request()->routeIs(Auth::user()->user_type.'.dashboard')">
-            {{ __('الصفحة الرئيسية') }}
-        </x-responsive-nav-link>
-    </x-slot>
+    @include("pages.".Auth::user()->user_type.".navbar")
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-sky-900 leading-tight">
             {{ __('ادارة الحساب') }}

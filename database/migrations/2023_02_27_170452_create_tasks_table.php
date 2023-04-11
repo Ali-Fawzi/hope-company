@@ -13,13 +13,16 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->timestamp("stating_at")->nullable();
+            $table->timestamp("starting_at")->nullable();
             $table->timestamp("ends_at")->nullable();
             $table->string("title");
             $table->string("location");
-            $table->integer("commission_rates"); // the number of deals the sales person should make.
+            $table->integer("required_profit");
+            $table->integer("commission_rates");
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('item_id');
+            $table->foreign('item_id')->references('id')->on('storages')->onDelete('cascade');
         });
     }
 

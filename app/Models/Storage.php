@@ -9,8 +9,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Storage extends Model
 {
     use HasFactory;
-    public function item(): hasMany
+    public $timestamps = false;
+
+    protected $fillable = ['item_name','item_price','item_in_stock'];
+    public function task(): hasMany
     {
-        return $this->hasMany(Item::class);
+        return $this->hasMany(Task::class);
+    }
+    public function sales(): hasMany
+    {
+        return $this->hasMany(Sales::class);
     }
 }

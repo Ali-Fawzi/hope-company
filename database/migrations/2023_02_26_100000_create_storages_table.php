@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('storages', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('number_of_item');
             $table->string('item_name');
+            $table->unsignedBigInteger('item_price');
+            $table->unsignedBigInteger('item_in_stock');
         });
     }
 

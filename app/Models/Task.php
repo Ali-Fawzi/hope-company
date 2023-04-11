@@ -10,12 +10,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Task extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+
     public function user(): belongsTo
     {
         return $this->belongsTo(User::class);
     }
-    public function item(): hasMany
+    public function storage(): belongsTo
     {
-        return $this->hasMany(Item::class);
+        return $this->belongsTo(Storage::class);
     }
 }

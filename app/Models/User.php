@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -23,6 +24,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'user_type',
     ];
 
     /**
@@ -47,8 +49,24 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class);
     }
+    public function reports(): HasMany
+    {
+        return $this->hasMany(Reports::class);
+    }
     public function salary(): HasOne
     {
         return $this->hasOne(Salary::class);
+    }
+    public function sales(): HasMany
+    {
+        return $this->hasMany(Sales::class);
+    }
+    public function supervisedSalespersons(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'supervisor_salesperson', 'supervisor_id', 'salesperson_id');
+    }
+    public function supervisorSalespersons(): HasMany
+    {
+        return $this->hasMany(SupervisorSalesperson::class, 'salesperson_id');
     }
 }
