@@ -10,17 +10,17 @@
                     </div>
                     <table class="table-auto w-full">
                         <thead>
-                        <tr class="bg-gradient-to-br from-blue-300 to-sky-300 text-blue-900">
+                        <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
                             <th class="px-4 py-2">تعيين المندوب</th>
                             <th class="px-4 py-2">الاسم</th>
                         </tr>
                         </thead>
                         <tbody class="text-blue-700">
                         @foreach($unsupervisedSalesPersons as $SalesPerson)
-                            <tr class="hover:bg-gray-100">
+                            <tr class="hover:bg-slate-200 text-indigo-900">
                                 <td class="border px-4 py-2">
                                         <div x-data="">
-                                            <button x-on:click="$dispatch('open-modal', { name: 'confirm-user-deletion' });setUserId({{$SalesPerson->id}})" class="hover:text-green-700">
+                                            <button x-on:click="$dispatch('open-modal', { name: 'confirm-user-deletion' });setId({{$SalesPerson->id}})" class="hover:text-green-700">
                                                 تعيين
                                             </button>
                                         </div>
@@ -41,10 +41,10 @@
         <form method="POST" action="{{ url('/users/setSalesPerson') }}" class="p-6">
             @csrf
             @method('POST')
-            <input type="hidden" id="userId" name="userId" :value="userId">
+            <input type="hidden" id="ID" name="userId" :value="userId">
             <input type="hidden" id="supervisorId" name="supervisorId" :value="{{request()->route('id')}}">
 
-            <h2 class="text-lg font-medium text-blue-700 text-right">
+            <h2 class="text-lg font-semibold text-white text-right">
                 {{ __('هل تريد تعيين هذا المندوب؟') }}
             </h2>
             <div class="mt-6 flex justify-end">

@@ -6,11 +6,11 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-sky-900 text-center">
                     <div class="mb-4">
-                        <a href="{{route('manager.users')}}" class="text-lg text-blue-700 hover:text-blue-900">قائمة المجموعات</a>
+                        <a href="{{route('manager.users.index')}}" class="text-lg text-blue-700 hover:text-blue-900">قائمة المجموعات</a>
                     </div>
                     <table class="table-auto w-full">
                         <thead>
-                        <tr class="bg-gradient-to-br from-blue-300 to-sky-300 text-blue-900">
+                        <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
                             <th class="px-4 py-2">حذف</th>
                             <th class="px-4 py-2">اعضاء الفريق</th>
                             <th class="px-4 py-2">عدد اعضاء الفريق</th>
@@ -20,7 +20,7 @@
                         <tbody class="text-blue-700">
                         @foreach($groups as $supervisor)
                             @php($salespersonCount = $supervisor->supervisedSalespersons->count())
-                            <tr class="hover:bg-gray-100">
+                            <tr class="hover:bg-slate-200 text-indigo-900">
                                 <td class="border px-4 py-2">
                                     @foreach($supervisor->supervisedSalespersons as $salesPerson)
                                         <div x-data="">
@@ -58,10 +58,10 @@
             @method('delete')
             <input type="hidden" id="ID" name="userId" :value="userId">
 
-            <h2 class="text-lg font-medium text-blue-700 text-right">
+            <h2 class="text-lg font-bold text-white text-right drop-shadow-xl">
                 {{ __('هل انت متاكد من انك تريد ازالة هذا المستخدم من الفريق؟') }}
             </h2>
-            <p class="mt-1 text-sm text-blue-700 text-right">
+            <p class="mt-1 text-sm font-semibold text-white text-right drop-shadow-xl">
                 {{ __('.عند المضي قدما في عملية الازالة لن يمكنك الرجوع في ذلك ابدا') }}
             </p>
             <div class="mt-6 flex justify-end">

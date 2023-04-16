@@ -6,7 +6,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-sky-900 text-center">
                     <div class="flex mb-2 justify-end">
-                        <a href="{{ route('manager.storage.add') }}">
+                        <a href="{{ route('manager.storage.create') }}">
                             <x-primary-button>
                                 {{ __('اضافة عنصر') }}
                             </x-primary-button>
@@ -15,7 +15,7 @@
                     <section class="justify-center text-sm md:text-lg ">
                         <table class="table-auto overflow-x-auto w-full border">
                             <thead>
-                            <tr class="bg-green-500 text-white">
+                            <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
                                 <th class="px-2 md:px-4 py-2">حذف</th>
                                 <th class="px-2 md:px-4 py-2">العدد</th>
                                 <th class="px-2 md:px-4 py-2">السعر</th>
@@ -24,7 +24,7 @@
                             </thead>
                             <tbody>
                             @foreach($items as $item)
-                                <tr class="hover:bg-gray-200">
+                                <tr class="hover:bg-slate-200 text-indigo-900">
                                     <td class="border px-2 md:px-4 py-2">
                                         <div x-data="">
                                             <x-danger-button
@@ -59,10 +59,10 @@
             @method('delete')
             <input type="hidden" id="ID" name="itemId" :value="itemId">
 
-            <h2 class="text-lg font-medium text-blue-700 text-right">
+            <h2 class="text-lg font-bold text-white text-right drop-shadow-xl">
                 {{ __('هل انت متاكد من انك تريد حذف هذا العنصر؟') }}
             </h2>
-            <p class="mt-1 text-sm text-blue-700 text-right">
+            <p class="mt-1 text-sm font-semibold text-white text-right drop-shadow-xl">
                 {{ __('.عند المضي قدما في عملية الحذف لن يمكنك الرجوع في ذلك ابدا') }}
             </p>
             <div class="mt-6 flex justify-end">

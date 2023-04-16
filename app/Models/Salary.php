@@ -10,8 +10,7 @@ class Salary extends Model
 {
     use HasFactory;
     public $timestamps = false;
-
-
+    protected $fillable = ['user_id','base_salary'];
     public function user(): belongsTo
     {
         return $this->belongsTo(User::class);

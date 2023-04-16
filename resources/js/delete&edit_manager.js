@@ -27,7 +27,9 @@ $(document).ready(function() {
         },
         success: function(response, newValue) {
             console.log('Updated', response)
+        },
+        ajaxOptions: {
+            method: 'PATCH'
         }
     });
-
 });

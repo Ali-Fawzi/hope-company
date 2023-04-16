@@ -6,7 +6,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-1 md:p-6 text-sky-900 text-center">
                     <div class="flex mb-2 justify-between">
-                        <a href="{{ route('manager.user.add') }}">
+                        <a href="{{ route('manager.users.create') }}">
                             <x-primary-button>
                                 {{ __('اضافة مستخدم') }}
                             </x-primary-button>
@@ -20,7 +20,7 @@
                     <section class="justify-center text-sm md:text-lg ">
                         <table class="table-auto overflow-x-auto w-full border">
                             <thead>
-                            <tr class="bg-green-500 text-white">
+                            <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
                                 <th class="px-2 md:px-4 py-2">حذف المستخدم</th>
                                 <th class="px-2 md:px-4 py-2">نوع المستخدم</th>
                                 <th class="px-2 md:px-4 py-2">البريد الالكرتوني</th>
@@ -29,7 +29,7 @@
                             </thead>
                             <tbody>
                             @foreach($users as $user)
-                                <tr class="hover:bg-gray-200">
+                                <tr class="hover:bg-slate-200 text-indigo-900">
                                     <td class="border px-2 md:px-4 py-2">
                                         <div x-data="">
                                             <x-danger-button
@@ -64,10 +64,10 @@
             @method('delete')
             <input type="hidden" id="ID" name="userId" :value="userId">
 
-            <h2 class="text-lg font-medium text-blue-700 text-right">
+            <h2 class="text-lg font-bold text-white text-right drop-shadow-xl">
                 {{ __('هل انت متاكد من انك تريد حذف هذا المستخدم؟') }}
             </h2>
-            <p class="mt-1 text-sm text-blue-700 text-right">
+            <p class="mt-1 text-sm font-semibold text-white text-right drop-shadow-xl">
                 {{ __('.عند المضي قدما في عملية الحذف لن يمكنك الرجوع في ذلك ابدا') }}
             </p>
             <div class="mt-6 flex justify-end">

@@ -17,7 +17,7 @@ class UsersRepository implements IUsersRepository
 
     public function index(): Collection
     {
-        return User::all();
+        return User::orderBy('user_type')->get();
     }
 
     public function store(AddUserRequest $request): RedirectResponse
@@ -31,10 +31,11 @@ class UsersRepository implements IUsersRepository
             'email' => $validated['email'],
             'user_type' => $validated['user_type'],
             'password' => bcrypt($validated['password']),
+            'email_verified_at' =>now(),
         ]);
 
         // Redirect to the user's profile page...
-        return Redirect::route('manager.users')->with('status', 'user-added');
+        return Redirect::route('manager.users.index')->with('status', 'user-added');
     }
 
     public function delete(Request $request): RedirectResponse
@@ -47,7 +48,7 @@ class UsersRepository implements IUsersRepository
         $user->delete();
 
         // Redirect back to the previous page with a success message
-        return Redirect::route('manager.users')->with('status', 'user-deleted');
+        return Redirect::route('manager.users.index')->with('status', 'user-deleted');
     }
     public function unset(Request $request): RedirectResponse
     {
@@ -94,7 +95,7 @@ class UsersRepository implements IUsersRepository
             ->get();
     }
 
-    public function setSalesPersonToSupervisor(Request $request)
+    public function setSalesPersonToSupervisor(Request $request): RedirectResponse
     {
         SupervisorSalesperson::create([
             'supervisor_id'=> $request->input('supervisorId'),

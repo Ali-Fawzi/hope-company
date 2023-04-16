@@ -25,7 +25,7 @@ class StorageRepository implements IStorageRepository
 
     public function index(): Collection
     {
-        return Storage::all();
+        return Storage::orderBy('item_price','desc')->get();
     }
 
     public function update(Request $request): JsonResponse
@@ -57,10 +57,10 @@ class StorageRepository implements IStorageRepository
         $item->delete();
 
         // Redirect back to the previous page with a success message
-        return Redirect::route('manager.storage')->with('status', 'item-deleted');
+        return Redirect::route('manager.storage.index')->with('status', 'item-deleted');
     }
 
-    public function store(AddItemRequest $request)
+    public function store(AddItemRequest $request): RedirectResponse
     {
         // Retrieve the validated input data...
         $validated = $request->validated();
@@ -73,6 +73,6 @@ class StorageRepository implements IStorageRepository
         ]);
 
         // Redirect to the  storage page...
-        return Redirect::route('manager.storage')->with('status', 'item-added');
+        return Redirect::route('manager.storage.index')->with('status', 'item-added');
     }
 }
