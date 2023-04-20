@@ -1,0 +1,11 @@
+[90m= [39m[34;4mApp\Models\User[39;24m {#4560
+    [34mname[39m: "[32mCrystel Erdman[39m",
+    [34memail[39m: "[32mbilly.emmerich@example.org[39m",
+    [34memail_verified_at[39m: "[32m2023-03-17 00:55:11[39m",
+    [34muser_type[39m: "[32msalesPerson[39m",
+    #[33mpassword[39m: "[32m$2y$10$9rO/izBJxo2/27Z/ylT5juS0V03d0br1Fx.ba/2zMUgnjpB0/czWu[39m",
+    [34mupdated_at[39m: "[32m2023-03-17 00:55:11[39m",
+    [34mcreated_at[39m: "[32m2023-03-17 00:55:11[39m",
+    [34mid[39m: [35m3[39m,
+  }
+
