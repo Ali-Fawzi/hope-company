@@ -3,6 +3,7 @@ namespace App\Repositories;
 use App\Models\Sales;
 use App\Models\User;
 use App\Repositories\Interfaces\ISalesRepository;
+use Illuminate\Database\Eloquent\Collection;
 
 class SalesRepository implements ISalesRepository
 {
@@ -12,7 +13,7 @@ class SalesRepository implements ISalesRepository
      *
      * @return Collection The collection of total profit and month
      */
-    public function getTotalSalesProfitByMonth()
+    public function getTotalSalesProfitByMonth(): Collection
     {
         return Sales::selectRaw('SUM(profit) as total_profit, MONTH(date) as month')
             ->groupBy('month')
@@ -27,7 +28,7 @@ class SalesRepository implements ISalesRepository
      * @param string $endDate The end date of the range
      * @return Collection The collection of salespersons with their name and total profit
      */
-    public function getTopSalespersonByProfit($startDate, $endDate)
+    public function getTopSalespersonByProfit($startDate, $endDate): Collection
     {
         return User::withSum(['sales' => function ($query) use ($startDate, $endDate) {
             $query->whereBetween('date', [$startDate, $endDate]);
@@ -62,5 +63,13 @@ class SalesRepository implements ISalesRepository
                     }, 0),
                 ];
             });
+    }
+
+    public function index(): Collection|array
+    {
+        return Sales::select('quantity', 'profit', 'date', 'users.name', 'storages.item_name')
+            ->join('users', 'users.id', '=', 'sales.user_id')
+            ->join('storages', 'storages.id', '=', 'sales.storage_id')
+            ->get();
     }
 }

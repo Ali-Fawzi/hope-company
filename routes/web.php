@@ -4,9 +4,11 @@ use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SalaryController;
+use App\Http\Controllers\SalesController;
 use App\Http\Controllers\SalesPersonController;
 use App\Http\Controllers\StorageController;
 use App\Http\Controllers\SupervisorController;
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,14 +40,23 @@ Route::middleware(['auth', 'manager'])->group(function () {
 
 Route::middleware(['auth', 'supervisor'])->group(function () {
     Route::get('supervisor/dashboard',[SupervisorController::class, 'index'])->name('supervisor.dashboard');
-
-    Route::get('supervisor/test',function (){
-        return view('pages.supervisor.test');
-    })->name('supervisor.test');
+    Route::get('supervisor/salesPersons',[SupervisorController::class, 'salesPersons'])->name('supervisor.salesPersons');
+    Route::post('supervisor/salesPersons/kick',[SupervisorController::class, 'kick'])->name('supervisor.kickSalesPerson');
+    Route::resource('supervisor/storage', StorageController::class)->names('supervisor.storage');
+    Route::resource('supervisor/tasks',TaskController::class)->names('supervisor.tasks');
+    Route::resource('supervisor/sales', SalesController::class)->names('supervisor.sales');
+    Route::resource('supervisor/reports',ReportController::class)->names('supervisor.reports');
 });
 
 Route::middleware(['auth', 'salesPerson'])->group(function () {
     Route::get('salesPerson/dashboard',[SalesPersonController::class, 'index'])->name('salesPerson.dashboard');
+
+    Route::get('salesPerson/tasks',[TaskController::class,'getTasks'])->name('salesPerson.tasks');
+    Route::get('salesPerson/tasks/displayMyTask/{task}',[TaskController::class,'displayMyTask'])->name('salesPerson.showMyTask');
+    Route::resource('salesPerson/reports',ReportController::class)->names('salesPerson.reports');
+    Route::get('salesPerson/test',function (){
+        return view('pages.salesPerson.test');
+    })->name('salesPerson.test');
 });
 
 Route::middleware('auth')->group(function () {

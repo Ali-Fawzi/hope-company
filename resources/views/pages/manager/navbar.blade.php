@@ -1,6 +1,6 @@
 <x-slot name="navLinks">
     <x-nav-link :href="route(Auth::user()->user_type.'.reports.index')" :active="request()->routeIs(Auth::user()->user_type.'.reports.index')">
-        {{ __('البلاغات') }}
+        {{ __('الابلاغات') }}
     </x-nav-link>
     <x-nav-link :href="route(Auth::user()->user_type.'.salaries.index')" :active="request()->routeIs(Auth::user()->user_type.'.salaries.index')">
         {{ __('الرواتب') }}
@@ -14,7 +14,6 @@
     <x-nav-link :href="route(Auth::user()->user_type.'.dashboard')" :active="request()->routeIs(Auth::user()->user_type.'.dashboard')">
         {{ __('الصفحة الرئيسية') }}
     </x-nav-link>
-
 </x-slot>
 <x-slot name="responsiveNavLinks">
     <x-responsive-nav-link :href="route(Auth::user()->user_type.'.dashboard')" :active="request()->routeIs(Auth::user()->user_type.'.dashboard')">
@@ -30,6 +29,6 @@
         {{ __('الرواتب') }}
     </x-responsive-nav-link>
     <x-responsive-nav-link :href="route(Auth::user()->user_type.'.reports.index')" :active="request()->routeIs(Auth::user()->user_type.'.reports.index')">
-        {{ __('البلاغات') }}
+        {{ __('الابلاغات') }}
     </x-responsive-nav-link>
 </x-slot>

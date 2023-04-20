@@ -1,11 +1,11 @@
 <x-app-layout>
-    @include('pages.manager.navbar')
+    @include('pages.'.Auth::user()->user_type.'.navbar')
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-sky-900 text-center">
-                    <form method="POST" action="{{route('manager.storage.store')}}" class="md:w-2/4 mx-auto">
-                        <a href="{{route('manager.storage.index')}}" class="text-lg text-blue-700 hover:text-blue-900">اضافة عنصر</a>
+                    <form method="POST" action="{{route(Auth::user()->user_type.'.storage.store')}}" class="md:w-2/4 mx-auto">
+                        <a href="{{route(Auth::user()->user_type.'.storage.index')}}" class="text-lg text-blue-700 hover:text-blue-900">اضافة عنصر</a>
                         @csrf
                         <div class="mb-2">
                             <x-input-label for="item_name" :value="__('اسم العنصر')"/>

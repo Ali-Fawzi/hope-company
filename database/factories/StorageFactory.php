@@ -19,7 +19,7 @@ class StorageFactory extends Factory
     public function definition(): array
     {
         return [
-            'item_name' => $this->faker->word,
+            'item_name' => $this->faker->unique()->word,
             'item_price' => $this->faker->numberBetween(1, 10000),
             'item_in_stock' => $this->faker->numberBetween(0, 100),
         ];

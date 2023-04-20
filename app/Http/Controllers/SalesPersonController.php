@@ -11,4 +11,5 @@ class SalesPersonController extends Controller
     {
         return view('pages.salesPerson.dashboard');
     }
+
 }

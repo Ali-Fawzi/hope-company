@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->timestamp("starting_at")->nullable();
-            $table->timestamp("ends_at")->nullable();
+            $table->date("starting_at")->nullable();
+            $table->date("ends_at")->nullable();
+            $table->boolean("finished")->nullable();
             $table->string("title");
             $table->string("location");
             $table->integer("required_profit");

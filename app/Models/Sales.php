@@ -13,10 +13,10 @@ class Sales extends Model
 
     public function user(): belongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id', 'id');
     }
     public function storage(): belongsTo
     {
-        return $this->belongsTo(Storage::class);
+        return $this->belongsTo(Storage::class,'storage_id','id');
     }
 }

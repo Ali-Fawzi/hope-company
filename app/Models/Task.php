@@ -11,6 +11,16 @@ class Task extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $fillable = [
+        'starting_at',
+        'ends_at',
+        'title',
+        'location',
+        'required_profit',
+        'commission_rates',
+        'user_id',
+        'item_id'
+    ];
 
     public function user(): belongsTo
     {
@@ -18,6 +28,6 @@ class Task extends Model
     }
     public function storage(): belongsTo
     {
-        return $this->belongsTo(Storage::class);
+        return $this->belongsTo(Storage::class,'item_id');
     }
 }

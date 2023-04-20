@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class StorageRepository implements IStorageRepository
@@ -20,7 +21,7 @@ class StorageRepository implements IStorageRepository
      * @param string $endDate The end date of the range
      * @return Collection The collection of items with their name, price, stock, and total profit
      */
-    public function getMostProfitableItem($startDate, $endDate)
+    public function getMostProfitableItem($startDate, $endDate): Collection
     {
         return Storage::withSum(['sales' => function ($query) use ($startDate, $endDate) {
             $query->whereBetween('date', [$startDate, $endDate]);
@@ -82,7 +83,7 @@ class StorageRepository implements IStorageRepository
         $item->delete();
 
         // Redirect back to the previous page with a success message
-        return Redirect::route('manager.storage.index')->with('status', 'item-deleted');
+        return Redirect::route(Auth::user()->user_type.'.storage.index')->with('status', 'item-deleted');
     }
 
     /**
@@ -104,6 +105,6 @@ class StorageRepository implements IStorageRepository
         ]);
 
         // Redirect to the  storage page...
-        return Redirect::route('manager.storage.index')->with('status', 'item-added');
+        return Redirect::route(Auth::user()->user_type.'.storage.index')->with('status', 'item-added');
     }
 }

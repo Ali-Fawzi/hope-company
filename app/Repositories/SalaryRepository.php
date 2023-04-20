@@ -13,17 +13,24 @@ use Illuminate\Support\Facades\Redirect;
 
 class SalaryRepository implements ISalaryRepository
 {
-
     /**
-     * This method returns a collection of salaries joined with users and tasks.
+     * Returns a collection of salaries with the base salary, user id and commission rates.
+     * The commission rates are calculated from the tasks that are finished and have an end date within the last month.
+     * The salaries are joined with the users table and left joined with the tasks table.
+     * The salaries are grouped by their id and ordered by the user type.
      *
-     * @return Collection The collection of salaries, users, and tasks
+     * @return Collection
      */
     public function index(): Collection
     {
-        return Salary::select('salaries.id', 'base_salary', 'salaries.user_id', DB::raw('IFNULL(tasks.commission_rates, 0) as commission_rates'))
+        return Salary::select('salaries.id', 'base_salary', 'salaries.user_id', DB::raw('IFNULL(SUM(tasks.commission_rates), 0) as commission_rates'))
             ->join('users', 'users.id', '=', 'salaries.user_id')
-            ->leftJoin('tasks', 'tasks.user_id', '=', 'salaries.user_id')
+            ->leftJoin('tasks', function ($join) {
+                $join->on('tasks.user_id', '=', 'salaries.user_id')
+                    ->where('tasks.finished', '=', 1)
+                    ->where('tasks.ends_at', '>=', now()->subMonth());
+            })
+            ->groupBy('salaries.id')
             ->orderBy('users.user_type')
             ->get();
     }

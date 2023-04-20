@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Repositories\Interfaces\IReportsRepository;
+use App\Repositories\Interfaces\ITasksRepository;
 use App\Repositories\Interfaces\ISalaryRepository;
 use App\Repositories\Interfaces\ISalesRepository;
 use App\Repositories\Interfaces\IStorageRepository;
@@ -11,6 +12,7 @@ use App\Repositories\ReportsRepository;
 use App\Repositories\SalaryRepository;
 use App\Repositories\SalesRepository;
 use App\Repositories\StorageRepository;
+use App\Repositories\TasksRepository;
 use App\Repositories\UsersRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -40,6 +42,10 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             IReportsRepository::class,
             ReportsRepository::class
+        );
+        $this->app->bind(
+            ITasksRepository::class,
+            TasksRepository::class
         );
     }
 

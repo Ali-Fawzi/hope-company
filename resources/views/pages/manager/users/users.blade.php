@@ -21,16 +21,16 @@
                         <table class="table-auto overflow-x-auto w-full border">
                             <thead>
                             <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
-                                <th class="px-2 md:px-4 py-2">حذف المستخدم</th>
-                                <th class="px-2 md:px-4 py-2">نوع المستخدم</th>
-                                <th class="px-2 md:px-4 py-2">البريد الالكرتوني</th>
-                                <th class="px-2 md:px-4 py-2">اسم المستخدم</th>
+                                <th class="px-1 md:px-4 py-2">حذف المستخدم</th>
+                                <th class="px-1 md:px-4 py-2">نوع المستخدم</th>
+                                <th class="px-1 md:px-4 py-2">البريد الالكرتوني</th>
+                                <th class="px-1 md:px-4 py-2">اسم المستخدم</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($users as $user)
                                 <tr class="hover:bg-slate-200 text-indigo-900">
-                                    <td class="border px-2 md:px-4 py-2">
+                                    <td class="border px-1 md:px-4 py-2">
                                         <div x-data="">
                                             <x-danger-button
                                                 x-on:click="$dispatch('open-modal', { name: 'confirm-user-deletion' });setId({{$user->id}})"
@@ -38,12 +38,12 @@
                                             </x-danger-button>
                                         </div>
                                     </td>
-                                    <td class="border px-2 md:px-4 py-2">
+                                    <td class="border px-1 md:px-4 py-2">
                                         <a href="#" class="xedit" data-name="user_type" data-pk="{{ $user->id }}" data-title="Enter user type" id="user_type" data-type="select" data-url="/manager/users/update">{{ $user->user_type }}</a>
-                                    <td class="border px-2 md:px-4 py-2 overflow-hidden overflow-ellipsis whitespace-nowrap max-w-xs sm:max-w-full break-all">
+                                    <td class="border px-1 md:px-4 py-2 overflow-hidden overflow-ellipsis whitespace-nowrap max-w-xs sm:max-w-full break-all">
                                         <a href="#" class="xedit" data-name="email" data-type="text" data-pk="{{ $user->id }}" data-title="Enter email" data-url="/manager/users/update">{{ $user->email }}</a>
                                     </td>
-                                    <td class="border px-2 md:px-4 py-2">
+                                    <td class="border px-1 md:px-4 py-2">
                                         <a href="#" class="xedit" data-name="name" data-type="text" data-pk="{{ $user->id }}" data-title="Enter name" data-url="/manager/users/update">{{ $user->name }}</a>
                                     </td>
                                 </tr>

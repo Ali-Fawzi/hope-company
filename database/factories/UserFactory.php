@@ -32,7 +32,7 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),
             'user_type' => $this->faker->randomElement(['manager', 'supervisor', 'salesPerson']),
-            'password' => bcrypt('password'),
+            'password' => bcrypt('88888888'),
         ];
     }
 

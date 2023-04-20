@@ -9,11 +9,11 @@
                         <table class="table-auto overflow-x-auto w-full border">
                             <thead>
                             <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
-                                <th class="py-2 md:px-4 py-2">تاريخ الابلاغ</th>
-                                <th class="px-2 md:px-4 py-2">محتوى الابلاغ</th>
-                                <th class="px-2 md:px-4 py-2">نوع الابلاغ</th>
-                                <th class="px-2 md:px-4 py-2">نوع المستخدم</th>
-                                <th class="px-2 md:px-4 py-2">اسم المستخدم</th>
+                                <th class="py-2 md:px-4">تاريخ الابلاغ</th>
+                                <th class="px-2 md:px-4">محتوى الابلاغ</th>
+                                <th class="px-2 md:px-4">نوع الابلاغ</th>
+                                <th class="px-2 md:px-4">نوع المستخدم</th>
+                                <th class="px-2 md:px-4">اسم المستخدم</th>
                             </tr>
                             </thead>
                             <tbody>

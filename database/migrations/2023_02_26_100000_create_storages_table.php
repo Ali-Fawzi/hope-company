@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('storages', function (Blueprint $table) {
             $table->id();
-            $table->string('item_name');
+            $table->string('item_name')->unique();
             $table->unsignedBigInteger('item_price');
             $table->unsignedBigInteger('item_in_stock');
         });

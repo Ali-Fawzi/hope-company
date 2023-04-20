@@ -82,7 +82,7 @@ class UsersRepository implements IUsersRepository
         SupervisorSalesperson::where('salesperson_id', $salesperson_id)->delete();
 
         // Redirect back to the previous page with a success message
-        return Redirect::route('manager.users.groups')->with('status', 'user-unset');
+        return back()->with('status', 'user-unset');
     }
 
     /**
@@ -150,8 +150,13 @@ class UsersRepository implements IUsersRepository
         ]);
         return Redirect::route('manager.users.groups')->with('status', 'salesPerson-set-correctly');
     }
-    public function getTeamMembers()
+    /**
+     * Get the team members of the current supervisor with their user details and total sales profit.
+     *
+     * @return Collection|array A collection or an array of SupervisorSalesperson models with user and sales relations loaded.
+     */
+    public function getTeamMembers(): Collection|array
     {
-        return SupervisorSalesperson::with('user')->where('supervisor_id', Auth::user()->id)->get();
+        return SupervisorSalesperson::with('user')->where('supervisor_id', Auth::user()->id)->withSum('sales', 'profit')->get();
     }
 }
