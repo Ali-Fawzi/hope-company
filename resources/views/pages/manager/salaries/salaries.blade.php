@@ -33,7 +33,7 @@
                                         <span>{{$salary->commission_rates/10}}</span>%
                                     </td>
                                     <td class="border px-2 md:px-4 py-2">
-                                        <a href="#" class="xedit" data-name="item_in_stock" data-pk="{{ $salary->id }}" data-title="Enter item in stock" id="item_in_stock" data-type="number" data-url="/salaries/update">{{ $salary->base_salary }}</a>$
+                                        <a href="#" class="xedit" data-name="item_in_stock" data-pk="{{ $salary->id }}" data-title="Enter item in stock" id="item_in_stock" data-type="number" data-url="/manager/salaries/update">{{ $salary->base_salary }}</a>$
                                     <td class="border px-2 md:px-4 py-2">
                                         <p>{{ $salary->user->user_type }}</p>
                                     </td>

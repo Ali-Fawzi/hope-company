@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Redirect;
 class StorageRepository implements IStorageRepository
 {
 
+    /**
+     * This method returns a collection of the most profitable items in a given date range.
+     *
+     * @param string $startDate The start date of the range
+     * @param string $endDate The end date of the range
+     * @return Collection The collection of items with their name, price, stock, and total profit
+     */
     public function getMostProfitableItem($startDate, $endDate)
     {
         return Storage::withSum(['sales' => function ($query) use ($startDate, $endDate) {
@@ -23,11 +30,22 @@ class StorageRepository implements IStorageRepository
             ->get();
     }
 
+    /**
+     * This method returns a collection of all items ordered by their price in descending order.
+     *
+     * @return Collection The collection of items with their name, price, and stock
+     */
     public function index(): Collection
     {
         return Storage::orderBy('item_price','desc')->get();
     }
 
+    /**
+     * This method updates an item by its ID with a new name, price, or stock.
+     *
+     * @param Request $request The request object containing the item ID and the new value
+     * @return JsonResponse A JSON response indicating the success of the update
+     */
     public function update(Request $request): JsonResponse
     {
         $item = Storage::find($request->input('pk'));
@@ -47,6 +65,13 @@ class StorageRepository implements IStorageRepository
         return response()->json(['success' => true]);
     }
 
+    /**
+     * This method deletes an item by its ID.
+     *
+     * @param Request $request The request object containing the item ID
+     * @return RedirectResponse A redirect response to the storage page with a status message
+     * @throws ModelNotFoundException If the item ID is not found in the database
+     */
     public function delete(Request $request):RedirectResponse
     {
         $itemId = $request->input('itemId');
@@ -60,6 +85,12 @@ class StorageRepository implements IStorageRepository
         return Redirect::route('manager.storage.index')->with('status', 'item-deleted');
     }
 
+    /**
+     * This method creates and stores a new item using a validated request.
+     *
+     * @param AddItemRequest $request The request object containing the item name, price, and stock
+     * @return RedirectResponse A redirect response to the storage page with a status message
+     */
     public function store(AddItemRequest $request): RedirectResponse
     {
         // Retrieve the validated input data...

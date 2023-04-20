@@ -70,4 +70,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(SupervisorSalesperson::class, 'salesperson_id');
     }
+//    public function supervisors(): BelongsToMany
+//    {
+//        return $this->belongsToMany(User::class, 'supervisor_salesperson', 'salesperson_id', 'supervisor_id');
+//    }
 }

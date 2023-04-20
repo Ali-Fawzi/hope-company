@@ -39,12 +39,12 @@
                                         </div>
                                     </td>
                                     <td class="border px-2 md:px-4 py-2">
-                                        <a href="#" class="xedit" data-name="user_type" data-pk="{{ $user->id }}" data-title="Enter user type" id="user_type" data-type="select" data-url="/users/update">{{ $user->user_type }}</a>
+                                        <a href="#" class="xedit" data-name="user_type" data-pk="{{ $user->id }}" data-title="Enter user type" id="user_type" data-type="select" data-url="/manager/users/update">{{ $user->user_type }}</a>
                                     <td class="border px-2 md:px-4 py-2 overflow-hidden overflow-ellipsis whitespace-nowrap max-w-xs sm:max-w-full break-all">
-                                        <a href="#" class="xedit" data-name="email" data-type="text" data-pk="{{ $user->id }}" data-title="Enter email" data-url="/users/update">{{ $user->email }}</a>
+                                        <a href="#" class="xedit" data-name="email" data-type="text" data-pk="{{ $user->id }}" data-title="Enter email" data-url="/manager/users/update">{{ $user->email }}</a>
                                     </td>
                                     <td class="border px-2 md:px-4 py-2">
-                                        <a href="#" class="xedit" data-name="name" data-type="text" data-pk="{{ $user->id }}" data-title="Enter name" data-url="/users/update">{{ $user->name }}</a>
+                                        <a href="#" class="xedit" data-name="name" data-type="text" data-pk="{{ $user->id }}" data-title="Enter name" data-url="/manager/users/update">{{ $user->name }}</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -59,7 +59,7 @@
              x-data="{ open: false}"
              x-on:open-modal.window="if ($event.detail.name === 'confirm-user-deletion') { open = true}"
              focusable>
-        <form method="post" action="{{ url('/users/delete') }}" class="p-6">
+        <form method="post" action="{{ url('manager/users/delete') }}" class="p-6">
             @csrf
             @method('delete')
             <input type="hidden" id="ID" name="userId" :value="userId">

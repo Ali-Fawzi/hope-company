@@ -53,7 +53,7 @@
              x-data="{ open: false}"
              x-on:open-modal.window="if ($event.detail.name === 'confirm-user-deletion') { open = true}"
              focusable>
-        <form method="POST" action="{{ url('/users/unset') }}" class="p-6">
+        <form method="POST" action="{{ route('manager.unsetSalesPerson') }}" class="p-6">
             @csrf
             @method('delete')
             <input type="hidden" id="ID" name="userId" :value="userId">

@@ -34,12 +34,12 @@
                                         </div>
                                     </td>
                                     <td class="border px-2 md:px-4 py-2">
-                                        <a href="#" class="xedit" data-name="item_in_stock" data-pk="{{ $item->id }}" data-title="Enter item in stock" id="item_in_stock" data-type="number" data-url="/storage/update">{{ $item->item_in_stock }}</a>
+                                        <a href="#" class="xedit" data-name="item_in_stock" data-pk="{{ $item->id }}" data-title="Enter item in stock" id="item_in_stock" data-type="number" data-url="/manager/storage/update">{{ $item->item_in_stock }}</a>
                                     <td class="border px-2 md:px-4 py-2 overflow-hidden overflow-ellipsis whitespace-nowrap max-w-xs sm:max-w-full break-all">
-                                        <a href="#" class="xedit" data-name="item_price" data-type="number" data-pk="{{ $item->id }}" data-title="Enter item price" data-url="/storage/update">{{ $item->item_price }}</a>$
+                                        <a href="#" class="xedit" data-name="item_price" data-type="number" data-pk="{{ $item->id }}" data-title="Enter item price" data-url="/manager/storage/update">{{ $item->item_price }}</a>$
                                     </td>
                                     <td class="border px-2 md:px-4 py-2">
-                                        <a href="#" class="xedit" data-name="item_name" data-type="text" data-pk="{{ $item->id }}" data-title="Enter item name" data-url="/storage/update">{{ $item->item_name }}</a>
+                                        <a href="#" class="xedit" data-name="item_name" data-type="text" data-pk="{{ $item->id }}" data-title="Enter item name" data-url="/manager/storage/update">{{ $item->item_name }}</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -54,7 +54,7 @@
              x-data="{ open: false}"
              x-on:open-modal.window="if ($event.detail.name === 'confirm-user-deletion') { open = true}"
              focusable>
-        <form method="post" action="{{ url('/storage/delete') }}" class="p-6">
+        <form method="post" action="{{ url('manager/storage/delete') }}" class="p-6">
             @csrf
             @method('delete')
             <input type="hidden" id="ID" name="itemId" :value="itemId">

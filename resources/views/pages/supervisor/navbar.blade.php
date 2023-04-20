@@ -1,14 +1,14 @@
 <x-slot name="navLinks">
-    <x-nav-link :href="route(Auth::user()->user_type.'.dashboard')" :active="request()->routeIs(Auth::user()->user_type.'.dashboard')">
+    <x-nav-link :href="route(Auth::user()->user_type.'.test')" :active="request()->routeIs(Auth::user()->user_type.'.test')">
         {{ __('الابلاغ عن مشكلة') }}
     </x-nav-link>
-    <x-nav-link :href="route(Auth::user()->user_type.'.dashboard')" :active="request()->routeIs(Auth::user()->user_type.'.dashboard')">
+    <x-nav-link :href="route(Auth::user()->user_type.'.test')" :active="request()->routeIs(Auth::user()->user_type.'.test')">
         {{ __('المبيعات') }}
     </x-nav-link>
-    <x-nav-link :href="route(Auth::user()->user_type.'.dashboard')" :active="request()->routeIs(Auth::user()->user_type.'.dashboard')">
+    <x-nav-link :href="route(Auth::user()->user_type.'.test')" :active="request()->routeIs(Auth::user()->user_type.'.test')">
         {{ __('المهام') }}
     </x-nav-link>
-    <x-nav-link :href="route(Auth::user()->user_type.'.dashboard')" :active="request()->routeIs(Auth::user()->user_type.'.dashboard')">
+    <x-nav-link :href="route(Auth::user()->user_type.'.test')" :active="request()->routeIs(Auth::user()->user_type.'.test')">
         {{ __('المندوبين') }}
     </x-nav-link>
     <x-nav-link :href="route(Auth::user()->user_type.'.dashboard')" :active="request()->routeIs(Auth::user()->user_type.'.dashboard')">
@@ -19,16 +19,16 @@
     <x-responsive-nav-link :href="route(Auth::user()->user_type.'.dashboard')" :active="request()->routeIs(Auth::user()->user_type.'.dashboard')">
         {{ __('الصفحة الرئيسية') }}
     </x-responsive-nav-link>
-    <x-responsive-nav-link :href="route(Auth::user()->user_type.'.dashboard')" :active="request()->routeIs(Auth::user()->user_type.'.dashboard')">
+    <x-responsive-nav-link :href="route(Auth::user()->user_type.'.test')" :active="request()->routeIs(Auth::user()->user_type.'.test')">
         {{ __('المندوبين') }}
     </x-responsive-nav-link>
-    <x-responsive-nav-link :href="route(Auth::user()->user_type.'.dashboard')" :active="request()->routeIs(Auth::user()->user_type.'.dashboard')">
+    <x-responsive-nav-link :href="route(Auth::user()->user_type.'.test')" :active="request()->routeIs(Auth::user()->user_type.'.test')">
         {{ __('المهام') }}
     </x-responsive-nav-link>
-    <x-responsive-nav-link :href="route(Auth::user()->user_type.'.dashboard')" :active="request()->routeIs(Auth::user()->user_type.'.dashboard')">
+    <x-responsive-nav-link :href="route(Auth::user()->user_type.'.test')" :active="request()->routeIs(Auth::user()->user_type.'.test')">
         {{ __('المبيعات') }}
     </x-responsive-nav-link>
-    <x-responsive-nav-link :href="route(Auth::user()->user_type.'.dashboard')" :active="request()->routeIs(Auth::user()->user_type.'.dashboard')">
+    <x-responsive-nav-link :href="route(Auth::user()->user_type.'.test')" :active="request()->routeIs(Auth::user()->user_type.'.test')">
         {{ __('الابلاغ عن مشكلة') }}
     </x-responsive-nav-link>
 </x-slot>

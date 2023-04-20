@@ -13,4 +13,5 @@ interface IUsersRepository
     public function getUnsupervisedSalesPersons();
     public function delete(Request $request);
     public function getGroups();
+    public function getTeamMembers();
 }
