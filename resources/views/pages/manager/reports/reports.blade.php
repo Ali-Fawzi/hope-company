@@ -5,6 +5,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-sky-900 text-center">
+                    <p class="text-right md:text-xl font-semibold text-blue-900 mb-4">ابلاغات المستخدمين</p>
                     <section class="justify-center text-sm md:text-lg ">
                         <table class="table-auto overflow-x-auto w-full border">
                             <thead>
@@ -33,7 +34,8 @@
                                     </td>
 
                                     <td class="border px-2 md:px-4 py-2" x-data="">
-                                        <a href="#" class="hover:text-red-700"                                             x-on:click="$dispatch('open-modal', { name: 'confirm-user-deletion' });setId({{$report->id}})">{{ $report->name }}</a>
+                                        <a href="#" class="hover:text-red-700"                                             x-on:click="$dispatch('open-modal', { name: 'confirm-user-deletion' });setId({{$report->id}})">{{ $report->name }}
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

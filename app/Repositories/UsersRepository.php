@@ -56,10 +56,9 @@ class UsersRepository implements IUsersRepository
      * @return RedirectResponse A redirect response to the users page with a status message
      * @throws ModelNotFoundException If the user ID is not found in the database
      */
-    public function delete(Request $request): RedirectResponse
+    public function destroy(Request $request): RedirectResponse
     {
-        $userId = $request->input('userId');
-        $user = User::findOrFail($userId);
+        $user = User::findOrFail($request->input('userId'));
 
         // Perform any additional authorization checks here
 

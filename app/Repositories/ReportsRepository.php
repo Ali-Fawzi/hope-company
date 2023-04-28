@@ -42,6 +42,12 @@ class ReportsRepository implements IReportsRepository
         // Redirect back to the previous page with a success message
         return Redirect::route('manager.reports.index')->with('status', 'report-deleted');
     }
+    /**
+     * Kick a sales person and create a report with the given content.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
     public function kickSalesPerson(Request $request): void
     {
         Reports::create([
@@ -52,6 +58,12 @@ class ReportsRepository implements IReportsRepository
         ]);
     }
 
+    /**
+     * Validate and store a new report in the database.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(Request $request)
     {
         $request->validate([

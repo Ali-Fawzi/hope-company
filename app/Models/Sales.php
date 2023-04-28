@@ -10,7 +10,11 @@ class Sales extends Model
 {
     use HasFactory;
     public $timestamps = false;
-
+    protected $fillable = ['storage_id',
+        'user_id',
+        'quantity',
+        'profit',
+        'date'];
     public function user(): belongsTo
     {
         return $this->belongsTo(User::class,'user_id', 'id');

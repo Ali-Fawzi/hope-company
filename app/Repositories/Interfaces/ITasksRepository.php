@@ -15,4 +15,6 @@ interface ITasksRepository
     public function destroy(Request $request);
 
     public function getTasks();
+
+    public function finished(Request $request);
 }

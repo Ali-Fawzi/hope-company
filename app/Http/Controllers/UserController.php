@@ -36,6 +36,6 @@ class UserController extends Controller
     }
     public function destroy(Request $request): RedirectResponse
     {
-        return $this->user->delete($request);
+        return $this->user->destroy($request);
     }
 }

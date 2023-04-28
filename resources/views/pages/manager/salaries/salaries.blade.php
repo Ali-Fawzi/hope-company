@@ -5,6 +5,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-sky-900 text-center">
+                    <p class="text-right md:text-xl font-semibold text-blue-900 mb-4">رواتب المستخدمين</p>
                     <div class="flex mb-2 justify-end">
                         <a href="{{ route('manager.salaries.create') }}">
                             <x-primary-button>

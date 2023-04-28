@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('quantity');
             $table->unsignedBigInteger('profit');
-            $table->timestamp("date");
+            $table->date("date");
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('storage_id');
-            $table->foreign('storage_id')->references('id')->on('storages')->onDelete('cascade');
+            $table->foreign('storage_id')->references('id')->on('storages');
         });
     }
 
