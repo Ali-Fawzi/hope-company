@@ -11,7 +11,7 @@ interface IUsersRepository
     public function unset(Request $request);
     public function setSalesPersonToSupervisor(Request $request);
     public function getUnsupervisedSalesPersons();
-    public function delete(Request $request);
+    public function destroy(Request $request);
     public function getGroups();
     public function getTeamMembers();
 }

@@ -2,6 +2,9 @@
     <x-nav-link :href="route(Auth::user()->user_type.'.reports.index')" :active="request()->routeIs(Auth::user()->user_type.'.reports.index')">
         {{ __('الابلاغات') }}
     </x-nav-link>
+    <x-nav-link :href="route(Auth::user()->user_type.'.sales.index')" :active="request()->routeIs(Auth::user()->user_type.'.sales.index')">
+        {{ __('المبيعات') }}
+    </x-nav-link>
     <x-nav-link :href="route(Auth::user()->user_type.'.salaries.index')" :active="request()->routeIs(Auth::user()->user_type.'.salaries.index')">
         {{ __('الرواتب') }}
     </x-nav-link>
@@ -27,6 +30,9 @@
     </x-responsive-nav-link>
     <x-responsive-nav-link :href="route(Auth::user()->user_type.'.salaries.index')" :active="request()->routeIs(Auth::user()->user_type.'.salaries.index')">
         {{ __('الرواتب') }}
+    </x-responsive-nav-link>
+    <x-responsive-nav-link :href="route(Auth::user()->user_type.'.sales.index')" :active="request()->routeIs(Auth::user()->user_type.'.sales.index')">
+        {{ __('المبيعات') }}
     </x-responsive-nav-link>
     <x-responsive-nav-link :href="route(Auth::user()->user_type.'.reports.index')" :active="request()->routeIs(Auth::user()->user_type.'.reports.index')">
         {{ __('الابلاغات') }}

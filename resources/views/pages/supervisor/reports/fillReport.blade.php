@@ -4,7 +4,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-sky-900 text-center">
-                    <p class="text-center text-xl font-semibold text-blue-900 mb-4">الابلاغ عن مشكلة</p>
+                    <p class="text-center md:text-xl font-semibold text-blue-900 mb-4">الابلاغ عن مشكلة</p>
                     <form method="POST" action="{{route(Auth::user()->user_type.'.reports.store')}}" class="md:w-2/4 mx-auto">
                         @csrf
                         <div class="mb-4">
@@ -27,9 +27,13 @@
                         </x-primary-button>
                     </form>
                     @if (session('status'))
-                        <div class="text-right text-green-600 font-semibold ">
-                            {{ session('status') }}
-                        </div>
+                        <p
+                            x-data="{ show: true }"
+                            x-show="show"
+                            x-transition
+                            x-init="setTimeout(() => show = false, 2000)"
+                            class="text-right text-green-600 font-semibold "
+                        >{{ session('status') }}</p>
                     @endif
                 </div>
             </div>

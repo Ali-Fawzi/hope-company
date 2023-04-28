@@ -19,7 +19,8 @@ class Task extends Model
         'required_profit',
         'commission_rates',
         'user_id',
-        'item_id'
+        'item_id',
+        'finished'
     ];
 
     public function user(): belongsTo

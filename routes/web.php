@@ -26,12 +26,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('landing');
 });
+
 Route::middleware(['auth', 'manager'])->group(function () {
     Route::get('manager/dashboard',[ManagerController::class, 'index'])->name('manager.dashboard');
     Route::resource('manager/users', UserController::class)->names('manager.users')->except('show');
     Route::resource('manager/storage', StorageController::class)->names('manager.storage');
     Route::resource('manager/salaries', SalaryController::class)->names('manager.salaries');
     Route::resource('manager/reports', ReportController::class)->names('manager.reports');
+    Route::resource('manager/sales', SalesController::class)->names('manager.sales');
     Route::get('manager/users/groups',[ManagerController::class, 'groups'])->name('manager.users.groups');
     Route::get('manager/users/groups/addSalesPerson/{id}',[ManagerController::class, 'addSalesPerson'])->name('manager.users.groups.addSalesPerson');
     Route::post('manager/users/setSalesPerson',[ManagerController::class, 'setSalesPersonToSupervisor']);
@@ -50,9 +52,10 @@ Route::middleware(['auth', 'supervisor'])->group(function () {
 
 Route::middleware(['auth', 'salesPerson'])->group(function () {
     Route::get('salesPerson/dashboard',[SalesPersonController::class, 'index'])->name('salesPerson.dashboard');
-
+    Route::resource('salesPerson/sales', SalesController::class)->names('salesPerson.sales');
     Route::get('salesPerson/tasks',[TaskController::class,'getTasks'])->name('salesPerson.tasks');
     Route::get('salesPerson/tasks/displayMyTask/{task}',[TaskController::class,'displayMyTask'])->name('salesPerson.showMyTask');
+    Route::post('salesPerson/tasks/finished',[TaskController::class,'finished']);
     Route::resource('salesPerson/reports',ReportController::class)->names('salesPerson.reports');
     Route::get('salesPerson/test',function (){
         return view('pages.salesPerson.test');

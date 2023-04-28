@@ -2,7 +2,7 @@
     <x-nav-link :href="route(Auth::user()->user_type.'.reports.create')" :active="request()->routeIs(Auth::user()->user_type.'.reports.create')">
         {{ __('الابلاغ عن مشكلة') }}
     </x-nav-link>
-    <x-nav-link :href="route(Auth::user()->user_type.'.sales.index')" :active="request()->routeIs(Auth::user()->user_type.'.sales.index')">
+    <x-nav-link :href="route(Auth::user()->user_type.'.sales.show',['sale'=>'0'])" :active="request()->routeIs(Auth::user()->user_type.'.sales.show',['sale'=>'0'])">
         {{ __('المبيعات') }}
     </x-nav-link>
     <x-nav-link :href="route(Auth::user()->user_type.'.tasks.index')" :active="request()->routeIs(Auth::user()->user_type.'.tasks.index')">
@@ -31,7 +31,7 @@
     <x-responsive-nav-link :href="route(Auth::user()->user_type.'.tasks.index')" :active="request()->routeIs(Auth::user()->user_type.'.tasks.index')">
         {{ __('المهام') }}
     </x-responsive-nav-link>
-    <x-responsive-nav-link :href="route(Auth::user()->user_type.'.sales.index')" :active="request()->routeIs(Auth::user()->user_type.'.sales.index')">
+    <x-responsive-nav-link :href="route(Auth::user()->user_type.'.sales.show',['sale'=>'0'])" :active="request()->routeIs(Auth::user()->user_type.'.sales.show',['sale'=>'0'])">
         {{ __('المبيعات') }}
     </x-responsive-nav-link>
     <x-responsive-nav-link :href="route(Auth::user()->user_type.'.reports.create')" :active="request()->routeIs(Auth::user()->user_type.'.reports.create')">

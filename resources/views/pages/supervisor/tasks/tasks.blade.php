@@ -5,6 +5,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-sky-900 text-center">
                     <section class="justify-center text-sm md:text-lg ">
+                        <p class="text-right md:text-xl font-semibold text-blue-900 mb-4">مهام الفريق</p>
                         <table class="table-auto overflow-x-auto w-full border">
                             <thead>
                             <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">

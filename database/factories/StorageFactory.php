@@ -20,7 +20,7 @@ class StorageFactory extends Factory
     {
         return [
             'item_name' => $this->faker->unique()->word,
-            'item_price' => $this->faker->numberBetween(1, 10000),
+            'item_price' => $this->faker->numberBetween(1, 1500),
             'item_in_stock' => $this->faker->numberBetween(0, 100),
         ];
     }
