@@ -1,7 +1,7 @@
 <x-app-layout>
     @include("pages.".Auth::user()->user_type.".navbar")
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-sky-900 leading-tight">
+        <h2 class="font-semibold text-xl text-blue-900 leading-tight">
             {{ __('ادارة الحساب') }}
         </h2>
     </x-slot>
@@ -9,17 +9,17 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="p-4 sm:p-8 sm:rounded-lg bg-white">
                 <div class="sticky top-0 hidden md:block">
-                    <div class="mb-2 text-blue-900 hover:text-xl hover:text-amber-400">
+                    <div class="mb-2 text-blue-900 hover:text-xl">
                         <a href="#معلومات_الحساب">
                             معلومات الحساب
                         </a>
                     </div>
-                    <div class="mb-2 text-blue-900 hover:text-xl hover:text-amber-400">
+                    <div class="mb-2 text-blue-900 hover:text-xl">
                         <a href="#تحديث_رمز_الدخول">
                             تحديث رمز الدخول
                         </a>
                     </div>
-                    <div class="mb-2 text-blue-900 hover:text-xl hover:text-amber-400">
+                    <div class="mb-2 text-blue-900 hover:text-xl">
                         <a href="#حذف_الحساب">
                             حذف الحساب
                         </a>

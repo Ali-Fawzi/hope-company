@@ -8,7 +8,7 @@
                     <section class="justify-center text-sm md:text-lg ">
                         <table class="table-auto overflow-x-auto w-full border">
                             <thead>
-                            <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
+                            <tr class="text-blue-500 bg-sky-100">
                                 <th class="px-2 md:px-4 py-2">التاريخ</th>
                                 <th class="px-2 md:px-4 py-2">كمية العنصر</th>
                                 <th class="px-2 md:px-4 py-2">اسم العنصر</th>
@@ -18,7 +18,7 @@
                             </thead>
                             <tbody>
                             @foreach($salesRecords as $salesDetails)
-                                <tr class="hover:bg-slate-200 text-indigo-900">
+                                <tr class="hover:bg-slate-200 text-blue-900">
                                     <td class="border px-2 md:px-4 py-2">
                                         {{$salesDetails->date}}
                                     </td>

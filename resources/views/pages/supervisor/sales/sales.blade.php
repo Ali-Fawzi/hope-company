@@ -9,7 +9,7 @@
                         <p class="text-right md:text-xl font-semibold text-blue-900 mb-4">مبيعات الفريق</p>
                         <table class="table-auto overflow-x-auto w-full border">
                             <thead>
-                            <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
+                            <tr class="text-blue-500 bg-sky-100">
                                 <th class="px-2 md:px-4 py-2">التاريخ</th>
                                 <th class="px-2 md:px-4 py-2">كمية العنصر</th>
                                 <th class="px-2 md:px-4 py-2">اسم العنصر</th>
@@ -21,20 +21,24 @@
                             @foreach ($salesRecords as $salesRecord)
                                 @foreach ($salesRecord->sales as $sale)
                                     <tr class="hover:bg-slate-200 text-indigo-900">
-                                        <td class="border px-2 md:px-4 py-2">
+                                        <td class="border">
                                             {{$sale->date}}
                                         </td>
-                                        <td class="border px-2 md:px-4 py-2">
+                                        <td class="border">
                                             {{$sale->quantity}}
                                         </td>
-                                        <td class="border px-2 md:px-4 py-2">
+                                        <td class="border">
                                             {{$sale->storage->item_name}}
                                         </td>
-                                        <td class="border px-2 md:px-4 py-2">
+                                        <td class="border">
                                             {{$sale->profit}}
                                         </td>
-                                        <td class="border px-2 md:px-4 py-2" x-data="">
-                                            <a href="#" class="hover:text-red-700"                                             x-on:click="$dispatch('open-modal', { name: 'confirm-sale-deletion' });setId({{$sale->id}})">{{$salesRecord->user->name}}</a>
+                                        <td class="border" x-data="">
+                                            <a href="#" x-on:click="$dispatch('open-modal', { name: 'confirm-sale-deletion' });setId({{$sale->id}})">
+                                                <x-danger-button>
+                                                    {{$salesRecord->user->name}}
+                                                </x-danger-button>
+                                                </a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -55,7 +59,7 @@
             @method('delete')
             <input type="hidden" id="ID" name="saleId" :value="saleId">
 
-            <h2 class="text-lg font-bold text-white text-right drop-shadow-xl">
+            <h2 class="text-lg font-bold text-blue-900 text-right">
                 {{ __('هل تريد حذف هذا التسجيل') }}
             </h2>
             <div class="mt-6 flex justify-end">

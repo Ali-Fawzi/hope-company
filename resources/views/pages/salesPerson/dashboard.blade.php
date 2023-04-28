@@ -8,7 +8,7 @@
                     <section class="justify-center text-sm md:text-lg ">
                         <table class="table-auto overflow-x-auto w-full border">
                             <thead>
-                            <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
+                            <tr class="text-blue-500 bg-sky-100">
                                 <th class="px-2 md:px-4 py-2">التاريخ</th>
                                 <th class="px-2 md:px-4 py-2">الوارد</th>
                             </tr>

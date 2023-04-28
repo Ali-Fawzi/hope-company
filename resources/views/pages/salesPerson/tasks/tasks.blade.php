@@ -8,7 +8,7 @@
                     <section class="justify-center text-sm md:text-lg ">
                         <table class="table-auto overflow-x-auto w-full border">
                             <thead>
-                            <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
+                            <tr class="text-blue-500 bg-sky-100">
                                 <th class="px-2 md:px-4 py-2">عرض التفاصيل</th>
                                 <th class="px-2 md:px-4 py-2">وقت انتهاء المهمة</th>
                                 <th class="px-2 md:px-4 py-2">موقغ المهمة</th>
@@ -18,16 +18,20 @@
                             <tbody>
                             @foreach($tasks as $task)
                                 <tr class="hover:bg-slate-200 text-indigo-900">
-                                    <td class="border px-2 md:px-4 py-2">
-                                        <a href="{{route('salesPerson.showMyTask',['task' => $task->id])}}" class="hover:text-xl hover:text-amber-400">عرض التفاصيل</a>
+                                    <td class="border py-2">
+                                        <a href="{{route('salesPerson.showMyTask',['task' => $task->id])}}">
+                                            <x-primary-button>
+                                                عرض التفاصيل
+                                            </x-primary-button>
+                                        </a>
                                     </td>
-                                    <td class="border px-2 md:px-4 py-2">
+                                    <td class="border">
                                         {{$task->ends_at}}
                                     </td>
-                                    <td class="border px-2 md:px-4 py-2">
+                                    <td class="border">
                                         {{$task->location}}
                                     </td>
-                                    <td class="border px-2 md:px-4 py-2">
+                                    <td class="border">
                                         {{$task->title}}
                                     </td>
                                 </tr>

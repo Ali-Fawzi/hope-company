@@ -1,28 +1,39 @@
 function createChartConfig(type, labels, data, title, titleText)
 {
     return{
-    type: type,
-    data: {
-        labels: labels,
-        datasets: [{
-            label:title,
-            data: data,
-            backgroundColor: ['rgba(255, 99, 132, 0.8)', 'rgba(54, 162, 235, 0.8)', 'rgba(255, 206, 86, 0.8)', 'rgba(75, 192, 192, 0.8)',
-                'rgba(153, 102, 255, 0.8)']
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: {
-                position: 'top',
-            },
-            title: {
-                display: true,
-                text: titleText
+        type: type,
+        data: {
+            labels: labels,
+            datasets: [{
+                label:title,
+                data: data,
+                backgroundColor: ['rgba(255, 99, 132, 0.8)', 'rgba(54, 162, 235, 0.8)',
+                    'rgba(255, 206, 86, 0.8)', 'rgba(75, 192, 192, 0.8)',
+                    'rgba(153, 102, 255, 0.8)']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        color: '#4d63d5', // change the text color to red
+                        font: {
+                            size: 10 // change the text size to 20 pixels
+                        }
+                    }
+                },
+                title: {
+                    display: true,
+                    text: titleText,
+                    color: '#1E3ABA', // change the text color to red
+                    font: {
+                        size: 10 // change the text size to 20 pixels
+                    }
+                }
             }
-        }
-    }}
+        }}
 }
 
 const totalSalesProfitByMonthData = JSON.parse(document.getElementById('totalSalesProfitByMonth').getAttribute('data-totalSalesProfitByMonth'));
@@ -67,5 +78,5 @@ const itemProfit = mostProfitableItemData.map(function (e) {
     return e.sales_sum_profit;
 });
 const mostProfitableItemChart = new Chart(document.getElementById('mostProfitableItem').getContext('2d'),
-    createChartConfig('polarArea', itemName, itemProfit,"الايتم ",
-        "افضل الايتمات مبيعا"));
+    createChartConfig('polarArea', itemName, itemProfit,"العنصر ",
+        "افضل العناصر مبيعا"));

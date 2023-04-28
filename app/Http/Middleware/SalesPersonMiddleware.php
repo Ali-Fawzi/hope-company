@@ -18,7 +18,6 @@ class SalesPersonMiddleware
         if (auth()->check() && auth()->user()->user_type == 'salesPerson') {
             return $next($request);
         }
-
         abort(403, 'Unauthorized');
     }
 }

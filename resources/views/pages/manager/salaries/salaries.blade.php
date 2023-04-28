@@ -16,12 +16,12 @@
                     <section class="justify-center text-sm md:text-lg ">
                         <table class="table-auto overflow-x-auto w-full border">
                             <thead>
-                            <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
-                                <th class="px-2 md:px-4 py-2">المبلع بعد الحوافز</th>
-                                <th class="py-2 md:px-4 py-2">نسبة الزيادة</th>
-                                <th class="px-2 md:px-4 py-2">المبلغ الاصلي</th>
-                                <th class="px-2 md:px-4 py-2">النوع</th>
-                                <th class="px-2 md:px-4 py-2">الاسم</th>
+                            <tr class="text-blue-500 bg-sky-100">
+                                <th class="md:px-4 py-2">المبلع بعد الحوافز</th>
+                                <th class="md:px-4 py-2">نسبة الزيادة</th>
+                                <th class="md:px-4 py-2">المبلغ الاصلي</th>
+                                <th class="md:px-4 py-2">النوع</th>
+                                <th class="md:px-4 py-2">الاسم</th>
                             </tr>
                             </thead>
                             <tbody>

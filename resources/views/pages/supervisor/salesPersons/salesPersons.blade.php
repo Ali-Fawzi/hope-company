@@ -10,7 +10,7 @@
 
                         <table class="table-auto overflow-x-auto w-full border">
                             <thead>
-                            <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
+                            <tr class="text-blue-500 bg-sky-100">
                                 <th class="px-2 md:px-4 py-2">طرد</th>
                                 <th class="px-2 md:px-4 py-2">اجمالي المبيعات</th>
                                 <th class="px-2 md:px-4 py-2">البريد الالكرتوني</th>
@@ -54,10 +54,10 @@
             @method('post')
             <input type="hidden" id="ID" name="userId" :value="userId">
 
-            <h2 class="text-lg font-bold text-white text-right drop-shadow-xl">
+            <h2 class="text-lg font-bold text-blue-900 text-right">
                 {{ __('هل انت متاكد من انك تريد طرد هذا المندوب؟') }}
             </h2>
-            <p class="mt-1 text-sm font-semibold text-white text-right drop-shadow-xl">
+            <p class="mt-1 text-sm font-semibold text-blue-900 text-right">
                 {{ __('ما هو سبب الطرد؟') }}
             </p>
             <div class="mt-6">

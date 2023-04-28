@@ -6,10 +6,10 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-sky-900 text-center">
                     <div x-data="" class="text-left">
-                        <x-primary-button
+                        <x-danger-button
                             x-on:click="$dispatch('open-modal', { name: 'confirm-user-deletion' });setId({{request()->segment(3)}})"
                         >{{ __('ازالة المهمة') }}
-                        </x-primary-button>
+                        </x-danger-button>
                     </div>
                     <div class="container mb-4">
                         <ul>
@@ -49,10 +49,10 @@
             @method('delete')
             <input type="hidden" id="ID" name="taskID" value="taskID">
 
-            <h2 class="text-lg font-bold text-white text-right drop-shadow-xl">
+            <h2 class="text-lg font-bold text-blue-900 text-right">
                 {{ __('هل انت متاكد من انك تريد ازالة هذه المهمة؟') }}
             </h2>
-            <p class="mt-1 text-sm font-semibold text-white text-right drop-shadow-xl">
+            <p class="mt-1 text-sm font-semibold text-blue-900 text-right">
                 {{ __('.عند المضي قدما في عملية الازالة لن يمكنك الرجوع في ذلك ابدا') }}
             </p>
             <div class="mt-6 flex justify-end">

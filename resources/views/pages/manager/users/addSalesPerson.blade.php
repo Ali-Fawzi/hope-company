@@ -10,7 +10,7 @@
                     </div>
                     <table class="table-auto w-full">
                         <thead>
-                        <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
+                        <tr class="text-blue-500 bg-sky-100">
                             <th class="px-4 py-2">تعيين المندوب</th>
                             <th class="px-4 py-2">الاسم</th>
                         </tr>
@@ -20,9 +20,9 @@
                             <tr class="hover:bg-slate-200 text-indigo-900">
                                 <td class="border px-4 py-2">
                                         <div x-data="">
-                                            <button x-on:click="$dispatch('open-modal', { name: 'confirm-user-deletion' });setId({{$SalesPerson->id}})" class="hover:text-green-700">
+                                            <x-submit-button x-on:click="$dispatch('open-modal', { name: 'confirm-user-deletion' });setId({{$SalesPerson->id}})" class="hover:text-green-700">
                                                 تعيين
-                                            </button>
+                                            </x-submit-button>
                                         </div>
                                 </td>
                                 <td class="border px-4 py-2">{{$SalesPerson->name}}</td>
@@ -44,12 +44,12 @@
             <input type="hidden" id="ID" name="userId" :value="userId">
             <input type="hidden" id="supervisorId" name="supervisorId" :value="{{request()->route('id')}}">
 
-            <h2 class="text-lg font-semibold text-white text-right">
+            <h2 class="text-lg font-semibold text-blue-900 text-right">
                 {{ __('هل تريد تعيين هذا المندوب؟') }}
             </h2>
             <div class="mt-6 flex justify-end">
                 <x-secondary-button x-on:click="$dispatch('close')">
-                    {{ __('الغاء') }}
+                    {{ __('لا') }}
                 </x-secondary-button>
 
                 <x-submit-button class="ml-3">

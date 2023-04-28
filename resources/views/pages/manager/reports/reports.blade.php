@@ -9,7 +9,7 @@
                     <section class="justify-center text-sm md:text-lg ">
                         <table class="table-auto overflow-x-auto w-full border">
                             <thead>
-                            <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
+                            <tr class="text-blue-500 bg-sky-100">
                                 <th class="py-2 md:px-4">تاريخ الابلاغ</th>
                                 <th class="px-2 md:px-4">محتوى الابلاغ</th>
                                 <th class="px-2 md:px-4">نوع الابلاغ</th>
@@ -32,10 +32,13 @@
                                     <td class="border px-2 md:px-4 py-2">
                                         <p>{{ $report->user_type }}</p>
                                     </td>
-
-                                    <td class="border px-2 md:px-4 py-2" x-data="">
-                                        <a href="#" class="hover:text-red-700"                                             x-on:click="$dispatch('open-modal', { name: 'confirm-user-deletion' });setId({{$report->id}})">{{ $report->name }}
-                                        </a>
+                                    <td class="border px-2 md:px-4 py-2">
+                                        <div x-data="">
+                                            <x-danger-button
+                                                x-on:click="$dispatch('open-modal', { name: 'confirm-report-deletion' });setId({{$report->id}})"
+                                            >{{ $report->name }}
+                                            </x-danger-button>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
@@ -46,16 +49,16 @@
             </div>
         </div>
     </div>
-    <x-modal name="confirm-user-deletion"
+    <x-modal name="confirm-report-deletion"
              x-data="{ open: false}"
-             x-on:open-modal.window="if ($event.detail.name === 'confirm-user-deletion') { open = true}"
+             x-on:open-modal.window="if ($event.detail.name === 'confirm-report-deletion') { open = true}"
              focusable>
-        <form method="post" action="{{ url('manager/reports/delete') }}" class="p-6">
+        <form method="POST" action="{{ url('manager/reports/delete') }}" class="p-6">
             @csrf
             @method('delete')
             <input type="hidden" id="ID" name="reportId" :value="reportId">
 
-            <h2 class="text-lg font-bold text-white text-right drop-shadow-xl">
+            <h2 class="text-lg font-bold text-blue-900 text-right">
                 {{ __('هل تريد حذف هذا الابلاغ') }}
             </h2>
             <div class="mt-6 flex justify-end">

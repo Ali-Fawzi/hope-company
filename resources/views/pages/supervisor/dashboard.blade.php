@@ -3,11 +3,11 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-sky-900 text-center">
+                <div class="p-6 text-blue-900 text-center">
                     <section class="justify-center text-sm md:text-lg ">
                         <table class="table-auto overflow-x-auto w-full border">
                             <thead>
-                            <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
+                            <tr class="text-blue-500 bg-sky-100">
                                 <th class="px-2 md:px-4 py-2">اجمالي الوارد من كل صفقات المندوب</th>
                                 <th class="px-2 md:px-4 py-2">اسم المندوب</th>
                             </tr>

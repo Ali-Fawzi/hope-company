@@ -11,9 +11,9 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-sky-100 flex flex-col min-h-screen font-arabic relative">
+<body class="bg-slate-100 flex flex-col min-h-screen font-arabic relative">
     @if (Route::has('login'))
-        <div class="sm:fixed flex items-center justify-between sm:p-2 text-right w-full text-right absolute bg-gradient-to-r from-blue-200 to-sky-200 mix-blend-multiply">
+        <div class="sm:fixed flex items-center justify-between sm:p-2 w-full text-right absolute ">
             @auth
                 <a href="{{ route(Auth::user()->user_type.'.dashboard') }}">
                     <x-primary-button>
@@ -29,10 +29,10 @@
             @endauth
             <div class="px-1 sm:px-4 flex flex-row">
                 <section class="px-1 sm:px-4">
-                    <a href="#الوصف_العام" class="text-right text-blue-500 hover:text-blue-700 text-sm md:text-lg px-0 sm:px-2">الوصف العام</a>
-                    <a href="#الرؤية" class="text-right text-blue-500 hover:text-blue-700 text-sm md:text-lg px-0 sm:px-2 ">الرؤية</a>
-                    <a href="#خدمة_الزبون" class="text-right text-blue-500 hover:text-blue-700 text-sm md:text-lg px-0 sm:px-2">خدمة الزبون</a>
-                    <a href="#الاهداف" class="text-right text-blue-500 hover:text-blue-700 text-sm md:text-lg px-0 sm:px-2">الاهداف</a>
+                    <a href="#الوصف_العام" class="text-right text-blue-500 hover:text-blue-900 text-sm md:text-lg px-0 sm:px-2">الوصف العام</a>
+                    <a href="#الرؤية" class="text-right text-blue-500 hover:text-blue-900 text-sm md:text-lg px-0 sm:px-2 ">الرؤية</a>
+                    <a href="#خدمة_الزبون" class="text-right text-blue-500 hover:text-blue-900 text-sm md:text-lg px-0 sm:px-2">خدمة الزبون</a>
+                    <a href="#الاهداف" class="text-right text-blue-500 hover:text-blue-900 text-sm md:text-lg px-0 sm:px-2">الاهداف</a>
                 </section>
                 <a href="{{ url('/') }}" class="flex flex-row">
                     <span class="text-right text-blue-700 hover:text-blue-900 text-xl pr-2">أمل</span>
@@ -44,7 +44,7 @@
     <section class="h-full md:h-screen w-full bg-gray-50 flex items-center">
         <img src="{{url('/landing.jpg')}}" alt="Logo Picture" class=" object-contain object-left h-full w-full">
         <div class="absolute w-1/4 xl:w-1/3 right-10 rounded-lg sm:block hidden text-center ">
-            <p class="text-right text-blue-500 font-medium p-4 text-transparent bg-clip-text bg-gradient-to-bl from-sky-300 to-blue-700 text-7xl">أمل</p>
+            <p class="text-right font-medium p-4 text-transparent bg-clip-text bg-gradient-to-bl from-sky-300 to-blue-700 text-7xl">أمل</p>
             <p class="text-right text-blue-500 font-medium p-4 text-5xl">صحتكم تهمنا</p>
         </div>
     </section>
@@ -52,7 +52,7 @@
         <span class="text-right text-blue-500 font-medium py-4 text-transparent bg-clip-text bg-gradient-to-bl from-sky-300 to-blue-700 text-3xl md:text-4xl lg:text-5xl">أمل</span>
         <span class="text-right text-blue-500 font-medium py-4 text-2xl md:text-3xl lg:text-4xl">صحتكم تهمنا</span>
     </div>
-    <section class="mt-10 mx-6 lg:mx-10 xl:mx-20 text-right text-blue-900 xl:text-xl">
+    <section class="mt-10 mx-6 lg:mx-10 xl:mx-20 text-sm text-right text-blue-900 xl:text-base">
         {{ $slot }}
     </section>
 <footer class="flex-shrink-0">

@@ -7,7 +7,7 @@
         <!-- Logo with Company name -->
         <section class="mix-blend-multiply flex items-center justify-center">
             <a href="/" class="flex flex-row">
-                <span class="text-right text-blue-900 text-3xl text-transparent bg-clip-text bg-gradient-to-br from-sky-100 to-blue-500 pr-2">أمل</span>
+                <span class="text-right text-3xl text-blue-500 pr-2">أمل</span>
                 <img src="{{url('/favicon.ico')}}" alt="Logo Picture" height="50" width="50" class="bg-white rounded-lg">
             </a>
         </section>
@@ -15,14 +15,14 @@
         <p class="text-center text-blue-900 text-2xl mt-2">تسجيل الدخول</p>
 
         <!-- Email Address -->
-        <div>
+        <div class="mt-6">
             <x-input-label for="email" :value="__('البريد الالكتروني')"/>
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
+        <div class="mt-8">
             <x-input-label for="password" :value="__('رمز الدخول')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
@@ -34,10 +34,10 @@
         </div>
 
         <!-- Remember Me -->
-        <div class="block mt-4 text-right">
+        <div class="block text-right mt-6">
             <label for="remember_me" class="inline-flex items-center">
                 <span class="mr-2 text-sm text-blue-900">{{ __('تذكر هذا الحساب') }}</span>
-                <input id="remember_me" type="checkbox" class="rounded border-sky-900 bg-sky-100 text-sky-700 shadow-sm focus:ring-indigo-500" name="remember">
+                <input id="remember_me" type="checkbox" class="rounded border-blue-900 bg-sky-100 text-blue-500 shadow-sm focus:ring-blue-400" name="remember">
             </label>
         </div>
 

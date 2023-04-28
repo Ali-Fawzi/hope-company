@@ -13,12 +13,11 @@
                             class="justify-end"
                         >
                             <div class="w-full sm:w-auto flex justify-end items-center">
-                                <button
-                                    type="submit"
-                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 sm:mt-0 mr-6"
-                                >
-                                    ابحث
-                                </button>
+                                <div class="mt-4 sm:mt-0 mr-6">
+                                    <x-primary-button>
+                                        {{__('ابحث')}}
+                                    </x-primary-button>
+                                </div>
                                 <select
                                     name="user_type"
                                     id="user_type"
@@ -56,22 +55,18 @@
                                     <option value="supervisor">مشرف</option>
                                     <option value="salesPerson">مندوب</option>
                                 </select>
-                                <button
-                                    type="submit"
-                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 sm:mt-0 ml-0 sm:ml-4"
-                                >
-                                    ابحث
-                                </button>
+                                <x-primary-button>
+                                    {{__('ابحث')}}
+                                </x-primary-button>
                             </div>
                         </form>
-
                     </div>
-
 
                     <section class="justify-center text-sm md:text-lg">
                         <table class="table-auto overflow-x-auto w-full border">
                             <thead>
-                            <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
+                            <tr class="text-blue-500 bg-sky-100">
+                                <th class="px-2 md:px-4 py-2">تسجيل راتب</th>
                                 <th class="px-2 md:px-4 py-2">النوع</th>
                                 <th class="px-2 md:px-4 py-2">الاسم</th>
                             </tr>
@@ -80,14 +75,18 @@
                             @foreach($users as $user)
                                 <tr class="hover:bg-slate-200 text-indigo-900">
                                     <td class="border px-2 md:px-4 py-2">
+                                        <div x-data="">
+                                            <x-submit-button
+                                                x-on:click="$dispatch('open-modal', { name: 'confirm-user-deletion' });setId({{$user->id}})"
+                                            >{{ __('تسجيل') }}
+                                            </x-submit-button>
+                                        </div>
+                                    </td>
+                                    <td class="border px-2 md:px-4 py-2">
                                         {{ $user->user_type }}
                                     </td>
                                     <td class="border px-2 md:px-4 py-2">
-                                        <div x-data="">
-                                            <a href="#" x-on:click="$dispatch('open-modal', { name: 'confirm-user-deletion' });setId({{$user->id}})" class="hover:text-red-700">
-                                                {{ $user->name }}
-                                            </a>
-                                        </div>
+                                        {{ $user->name }}
                                     </td>
                                 </tr>
                             @endforeach
@@ -102,11 +101,11 @@
     <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
         <form method="POST" action="{{ route('manager.salaries.store') }}" class="p-6">
             @csrf
-            <h2 class="text-lg font-bold text-white text-right drop-shadow-xl">
+            <h2 class="text-lg font-bold text-blue-900 text-right">
                 {{ __('حدد راتب للموضف') }}
             </h2>
 
-            <p class="mt-1 text-sm font-semibold text-white text-right drop-shadow-xl">
+            <p class="mt-1 text-sm font-semibold text-blue-900 text-right">
                 {{ __('ادخل رقم الراتب المراد تحديده للموضف') }}
             </p>
             <input type="hidden" id="ID" name="userId" :value="userId">

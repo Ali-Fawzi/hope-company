@@ -1,11 +1,12 @@
-<footer class="p-4 rounded-lg shadow flex items-center justify-between md:p-6">
-    <span class="text-sm text-center text-blue-700">© 2023 Developed by: <a href="https://alifawzi.ninja" class="hover:underline hover:text-blue-900">Ali Fawzi</a>.
+<footer class="p-4 rounded-lg shadow flex items-center justify-center md:p-6">
+    <section class="mx-6 lg:mx-10 xl:mx-20">
+            <span class="text-sm text-center text-blue-900">© 2023 Developed by: <a href="https://alifawzi.ninja" class="hover:underline hover:text-blue-900">Ali Fawzi</a>.
     </span>
         <div class="flex flex-wrap items-center text-gray-600">
             <a
                 href="https://www.facebook.com/"
                 type="button"
-                class="m-1 h-7 w-7 lg:h-9 lg:w-9 rounded-md border-2 border-blue-500 uppercase leading-normal text-blue-500 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                class="m-1 h-7 w-7 lg:h-9 lg:w-9 rounded-xl border-2 border-blue-900 uppercase leading-normal text-blue-500 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
                 data-te-ripple-init
                 data-te-ripple-color="light">
                 <svg
@@ -21,7 +22,7 @@
             <a
                 href="https://twitter.com/home"
                 type="button"
-                class="m-1 h-7 w-7 lg:h-9 lg:w-9 rounded-md border-2 border-blue-500 uppercase leading-normal text-blue-500 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                class="m-1 h-7 w-7 lg:h-9 lg:w-9 rounded-xl border-2 border-blue-900 uppercase leading-normal text-blue-500 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
                 data-te-ripple-init
                 data-te-ripple-color="light">
                 <svg
@@ -37,7 +38,7 @@
             <a
                 href="https://www.instagram.com/"
                 type="button"
-                class="m-1 h-7 w-7 lg:h-9 lg:w-9 rounded-md border-2 border-blue-500 uppercase leading-normal text-blue-500 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                class="m-1 h-7 w-7 lg:h-9 lg:w-9 rounded-xl border-2 border-blue-900 uppercase leading-normal text-blue-500 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
                 data-te-ripple-init
                 data-te-ripple-color="light">
                 <svg
@@ -53,7 +54,7 @@
             <a
                 href="https://www.linkedin.com/feed/"
                 type="button"
-                class="m-1 h-7 w-7 lg:h-9 lg:w-9 rounded-md border-2 border-blue-500 uppercase leading-normal text-blue-500 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                class="m-1 h-7 w-7 lg:h-9 lg:w-9 rounded-xl border-2 border-blue-900 uppercase leading-normal text-blue-500 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
                 data-te-ripple-init
                 data-te-ripple-color="light">
                 <svg
@@ -66,4 +67,5 @@
                 </svg>
             </a>
         </div>
+    </section>
 </footer>

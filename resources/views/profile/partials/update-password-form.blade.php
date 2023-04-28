@@ -33,7 +33,9 @@
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('حفظ') }}</x-primary-button>
-
+            <p class="mt-1 text-rose-600 text-right">
+                {{ __(' !!! تم ايقاف هذه الميزة في الوقت الحالي ') }}
+            </p>
             @if (session('status') === 'password-updated')
                 <p
                     x-data="{ show: true }"

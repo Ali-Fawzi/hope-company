@@ -22,7 +22,7 @@
                     <section class="justify-center text-sm md:text-lg ">
                         <table class="table-auto overflow-x-auto w-full border">
                             <thead>
-                            <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
+                            <tr class="text-blue-500 bg-sky-100">
                                 <th class="px-1 md:px-4 py-2">حذف المستخدم</th>
                                 <th class="px-1 md:px-4 py-2">نوع المستخدم</th>
                                 <th class="px-1 md:px-4 py-2">البريد الالكرتوني</th>
@@ -31,7 +31,7 @@
                             </thead>
                             <tbody>
                             @foreach($users as $user)
-                                <tr class="hover:bg-slate-200 text-indigo-900">
+                                <tr class="hover:bg-slate-200 text-blue-900">
                                     <td class="border px-1 md:px-4 py-2">
                                         <div x-data="">
                                             <x-danger-button
@@ -66,10 +66,10 @@
             @method('delete')
             <input type="hidden" id="ID" name="userId" :value="userId">
 
-            <h2 class="text-lg font-bold text-white text-right drop-shadow-xl">
+            <h2 class="text-lg font-bold text-blue-900 text-right">
                 {{ __('هل انت متاكد من انك تريد حذف هذا المستخدم؟') }}
             </h2>
-            <p class="mt-1 text-sm font-semibold text-white text-right drop-shadow-xl">
+            <p class="mt-1 text-sm font-semibold text-blue-900 text-right">
                 {{ __('.عند المضي قدما في عملية الحذف لن يمكنك الرجوع في ذلك ابدا') }}
             </p>
             <div class="mt-6 flex justify-end">

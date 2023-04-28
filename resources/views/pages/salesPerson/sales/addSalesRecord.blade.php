@@ -5,7 +5,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-sky-900 text-center">
                     <p class="text-right md:text-xl font-semibold text-blue-900 mb-4">فضلا قم بتسجيل تفاصيل الصفقة</p>
-                    <form method="POST" action="{{route('salesPerson.sales.store')}}" class="md:w-2/4 mx-auto">
+                    <form method="POST" action="{{route('salesPerson.sales.store')}}" class="md:w-2/4 mx-auto bg-sky-100 px-6 py-8 rounded">
                         @csrf
                         <div class="mb-2">
                             <x-input-label for="item_name" :value="__('اسم العنصر')"/>

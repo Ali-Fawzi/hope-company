@@ -48,7 +48,7 @@
             @csrf
             <input type="hidden" id="ID" name="taskID" value="taskID">
 
-            <h2 class="text-lg font-bold text-white text-right drop-shadow-xl">
+            <h2 class="text-lg font-bold text-blue-900 text-right">
                 {{ __('هل قمت بانجاز هذه المهمة بنجاح؟') }}
             </h2>
             <div class="mt-6 flex justify-end">

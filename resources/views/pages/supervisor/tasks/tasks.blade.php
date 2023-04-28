@@ -8,7 +8,7 @@
                         <p class="text-right md:text-xl font-semibold text-blue-900 mb-4">مهام الفريق</p>
                         <table class="table-auto overflow-x-auto w-full border">
                             <thead>
-                            <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
+                            <tr class="text-blue-500 bg-sky-100">
                                 <th class="px-2 md:px-4 py-2">تعيين مهمة جديدة</th>
                                 <th class="px-2 md:px-4 py-2">عرض التفاصيل</th>
                                 <th class="px-2 md:px-4 py-2">المهمة</th>
@@ -18,27 +18,28 @@
                             <tbody>
                             @foreach($tasks as $task)
                                 <tr class="hover:bg-slate-200 text-indigo-900">
-                                    <td class="border px-2 md:px-4 py-2">
+                                    <td class="border">
                                         <a href="{{route('supervisor.tasks.create',['id'=> $task->user->id])}}">
-                                            <x-secondary-button>
+                                            <x-primary-button>
                                                 {{'تعيين مهمة'}}
-                                            </x-secondary-button>
+                                            </x-primary-button>
                                         </a>
-
                                     </td>
-                                    <td class="border px-2 md:px-4 py-2">
+                                    <td class="border">
                                         @foreach($task->task as $taskDetails)
                                             <div>
-                                                <a href="{{route('supervisor.tasks.show',['task'=>$taskDetails->id])}}" class="hover:text-xl hover:text-amber-400">عرض التفاصيل</a>
+                                                <a href="{{route('supervisor.tasks.show',['task'=>$taskDetails->id])}}">
+                                                    <x-primary-button>عرض التفاصيل</x-primary-button>
+                                                </a>
                                             </div>
                                         @endforeach
                                     </td>
-                                    <td class="border px-2 md:px-4 py-2">
+                                    <td class="border">
                                     @foreach($task->task as $taskDetails)
                                         <p>*{{$taskDetails->title}}</p>
                                     @endforeach
                                     </td>
-                                    <td class="border px-2 md:px-4 py-2">
+                                    <td class="border">
                                         {{$task->user->name}}
                                     </td>
                                 </tr>

@@ -6,27 +6,27 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-sky-900 text-center">
                     <div class="mb-4">
-                        <a href="{{route('manager.users.index')}}" class="text-lg text-blue-700 hover:text-blue-900">قائمة المجموعات</a>
+                        <a href="{{route('manager.users.index')}}" class="text-lg text-blue-500 hover:text-blue-700">قائمة المجموعات</a>
                     </div>
                     <table class="table-auto w-full">
                         <thead>
-                        <tr class="bg-gradient-to-br from-indigo-400 to-sky-400 text-white">
+                        <tr class="text-blue-500 bg-sky-100">
                             <th class="px-4 py-2">حذف</th>
                             <th class="px-4 py-2">اعضاء الفريق</th>
                             <th class="px-4 py-2">عدد اعضاء الفريق</th>
                             <th class="px-4 py-2">اسم المشرف</th>
                         </tr>
                         </thead>
-                        <tbody class="text-blue-700">
+                        <tbody class="text-blue-900">
                         @foreach($groups as $supervisor)
                             @php($salespersonCount = $supervisor->supervisedSalespersons->count())
                             <tr class="hover:bg-slate-200 text-indigo-900">
                                 <td class="border px-4 py-2">
                                     @foreach($supervisor->supervisedSalespersons as $salesPerson)
                                         <div x-data="">
-                                            <button x-on:click="$dispatch('open-modal', { name: 'confirm-user-deletion' });setId({{$salesPerson->id}})" class="hover:text-red-700">
-                                                ازالة المندوب
-                                            </button>
+                                            <x-danger-button x-on:click="$dispatch('open-modal', { name: 'confirm-user-deletion' });setId({{$salesPerson->id}})" class="hover:text-red-700">
+                                                {{ __('ازالة المندوب') }}
+                                            </x-danger-button>
                                         </div>
                                     @endforeach
                                 </td>
@@ -39,7 +39,11 @@
                                 </td>
                                 <td class="border px-4 py-2">{{$salespersonCount}}</td>
                                 <td class="border px-4 py-2">
-                                    <a href="{{ route('manager.users.groups.addSalesPerson', ['id' => $supervisor->id]) }}">{{$supervisor->name}}</a>
+                                    <a href="{{ route('manager.users.groups.addSalesPerson', ['id' => $supervisor->id]) }}">
+                                        <x-primary-button>
+                                            {{$supervisor->name}}
+                                        </x-primary-button>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
@@ -58,10 +62,10 @@
             @method('delete')
             <input type="hidden" id="ID" name="userId" :value="userId">
 
-            <h2 class="text-lg font-bold text-white text-right drop-shadow-xl">
+            <h2 class="text-lg font-bold text-blue-900 text-right">
                 {{ __('هل انت متاكد من انك تريد ازالة هذا المستخدم من الفريق؟') }}
             </h2>
-            <p class="mt-1 text-sm font-semibold text-white text-right drop-shadow-xl">
+            <p class="mt-1 text-sm font-semibold text-blue-900 text-right">
                 {{ __('.عند المضي قدما في عملية الازالة لن يمكنك الرجوع في ذلك ابدا') }}
             </p>
             <div class="mt-6 flex justify-end">
