@@ -6,7 +6,7 @@
             <a
                 href="https://www.facebook.com/"
                 type="button"
-                class="m-1 h-7 w-7 lg:h-9 lg:w-9 rounded-xl border-2 border-blue-900 uppercase leading-normal text-blue-500 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                class="m-1 h-7 w-7 lg:h-9 lg:w-9 rounded-xl border border-blue-400 uppercase leading-normal text-blue-500 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
                 data-te-ripple-init
                 data-te-ripple-color="light">
                 <svg
@@ -22,7 +22,7 @@
             <a
                 href="https://twitter.com/home"
                 type="button"
-                class="m-1 h-7 w-7 lg:h-9 lg:w-9 rounded-xl border-2 border-blue-900 uppercase leading-normal text-blue-500 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                class="m-1 h-7 w-7 lg:h-9 lg:w-9 rounded-xl border border-blue-400 uppercase leading-normal text-blue-500 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
                 data-te-ripple-init
                 data-te-ripple-color="light">
                 <svg
@@ -38,7 +38,7 @@
             <a
                 href="https://www.instagram.com/"
                 type="button"
-                class="m-1 h-7 w-7 lg:h-9 lg:w-9 rounded-xl border-2 border-blue-900 uppercase leading-normal text-blue-500 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                class="m-1 h-7 w-7 lg:h-9 lg:w-9 rounded-xl border border-blue-400 uppercase leading-normal text-blue-500 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
                 data-te-ripple-init
                 data-te-ripple-color="light">
                 <svg
@@ -54,7 +54,7 @@
             <a
                 href="https://www.linkedin.com/feed/"
                 type="button"
-                class="m-1 h-7 w-7 lg:h-9 lg:w-9 rounded-xl border-2 border-blue-900 uppercase leading-normal text-blue-500 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                class="m-1 h-7 w-7 lg:h-9 lg:w-9 rounded-xl border border-blue-400 uppercase leading-normal text-blue-500 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
                 data-te-ripple-init
                 data-te-ripple-color="light">
                 <svg

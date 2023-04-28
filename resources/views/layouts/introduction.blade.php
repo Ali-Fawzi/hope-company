@@ -42,7 +42,7 @@
         </div>
     @endif
     <section class="h-full md:h-screen w-full bg-gray-50 flex items-center">
-        <img src="{{url('/landing.jpg')}}" alt="Logo Picture" class=" object-contain object-left h-full w-full">
+        <img src="{{url('/landing.png')}}" alt="Logo Picture" class=" object-contain object-left h-full w-full">
         <div class="absolute w-1/4 xl:w-1/3 right-10 rounded-lg sm:block hidden text-center ">
             <p class="text-right font-medium p-4 text-transparent bg-clip-text bg-gradient-to-bl from-sky-300 to-blue-700 text-7xl">أمل</p>
             <p class="text-right text-blue-500 font-medium p-4 text-5xl">صحتكم تهمنا</p>
