@@ -57,9 +57,6 @@ Route::middleware(['auth', 'salesPerson'])->group(function () {
     Route::get('salesPerson/tasks/displayMyTask/{task}',[TaskController::class,'displayMyTask'])->name('salesPerson.showMyTask');
     Route::post('salesPerson/tasks/finished',[TaskController::class,'finished']);
     Route::resource('salesPerson/reports',ReportController::class)->names('salesPerson.reports');
-    Route::get('salesPerson/test',function (){
-        return view('pages.salesPerson.test');
-    })->name('salesPerson.test');
 });
 
 Route::middleware('auth')->group(function () {
