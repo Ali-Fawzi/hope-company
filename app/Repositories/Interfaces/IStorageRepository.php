@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 interface IStorageRepository
 {
-    public function getMostProfitableItem($startDate, $endDate);
+    public function getMostProfitableItem();
     public function index();
 
     public function update(Request $request);

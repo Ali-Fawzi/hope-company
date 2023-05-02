@@ -26,17 +26,14 @@ class ManagerController extends Controller
      * @return View
      * will return the required data for the manager dashboard.
      */
-    public function index(Request $request):View
+    public function index():View
     {
-
-        $startDate = $request->query('start_date', '2022-01-01');
-        $endDate = $request->query('end_date', '2024-12-31');
         return view('pages.manager.dashboard',
         [
             'totalSalesProfitByMonth'=> $this->sale->getTotalSalesProfitByMonth(),
-            'topSalespersonByProfit' => $this->sale->getTopSalespersonByProfit($startDate,$endDate),
-            'topSupervisorByTeamProfit'=> $this->sale->getTopSupervisorByTeamProfit($startDate, $endDate),
-            'mostProfitableItem'=> $this->storage->getMostProfitableItem($startDate, $endDate)
+            'topSalespersonByProfit' => $this->sale->getTopSalespersonByProfit(),
+            'topSupervisorByTeamProfit'=> $this->sale->getTopSupervisorByTeamProfit(),
+            'mostProfitableItem'=> $this->storage->getMostProfitableItem()
         ]);
     }
     public function groups():View

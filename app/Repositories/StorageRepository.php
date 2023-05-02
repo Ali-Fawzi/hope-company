@@ -17,15 +17,11 @@ class StorageRepository implements IStorageRepository
     /**
      * This method returns a collection of the most profitable items in a given date range.
      *
-     * @param string $startDate The start date of the range
-     * @param string $endDate The end date of the range
      * @return Collection The collection of items with their name, price, stock, and total profit
      */
-    public function getMostProfitableItem($startDate, $endDate): Collection
+    public function getMostProfitableItem(): Collection
     {
-        return Storage::withSum(['sales' => function ($query) use ($startDate, $endDate) {
-            $query->whereBetween('date', [$startDate, $endDate]);
-        }], 'profit')
+        return Storage::withSum(['sales'], 'profit')
             ->orderByDesc('sales_sum_profit')
             ->take(5)
             ->get();

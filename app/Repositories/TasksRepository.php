@@ -19,9 +19,9 @@ class TasksRepository implements ITasksRepository
     /**
      * Retrieve all salespersons with their user name and task title for the authenticated supervisor.
      *
-     * @return \Illuminate\Database\Eloquent\Collection|array
+     * @return Collection|array
      */
-    public function index()
+    public function index(): Collection|array
     {
         return SupervisorSalesperson::where('supervisor_id',Auth::user()->id)
             ->with(['user' => function($query) {
@@ -34,8 +34,8 @@ class TasksRepository implements ITasksRepository
     /**
      * Validate and store a new task in the database.
      *
-     * @param  \App\Http\Requests\AddTaskRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param AddTaskRequest $request
+     * @return RedirectResponse
      */
     public function store(AddTaskRequest $request): RedirectResponse
     {
@@ -60,7 +60,7 @@ class TasksRepository implements ITasksRepository
      * Retrieve a task with its storage item name by its id.
      *
      * @param  int  $id
-     * @return \Illuminate\Database\Eloquent\Collection|array
+     * @return Collection|array
      */
     public function show($id): Collection|array
     {
@@ -70,8 +70,8 @@ class TasksRepository implements ITasksRepository
     /**
      * Delete a task from the database.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function destroy(Request $request): RedirectResponse
     {
@@ -90,7 +90,7 @@ class TasksRepository implements ITasksRepository
     /**
      * Retrieve all tasks with ends_at, title, and location for the authenticated user.
      *
-     * @return \Illuminate\Database\Eloquent\Collection|array
+     * @return Collection|array
      */
     public function getTasks(): Collection|array
     {
@@ -100,8 +100,8 @@ class TasksRepository implements ITasksRepository
     /**
      * Mark a task as finished and update the database.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function finished(Request $request): RedirectResponse
     {

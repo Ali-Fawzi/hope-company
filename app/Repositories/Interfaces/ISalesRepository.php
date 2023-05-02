@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 interface ISalesRepository
 {
     public function getTotalSalesProfitByMonth();
-    public function getTopSalespersonByProfit($startDate, $endDate);
-    public function getTopSupervisorByTeamProfit($startDate, $endDate);
+    public function getTopSalespersonByProfit();
+    public function getTopSupervisorByTeamProfit();
 
     public function index();
 

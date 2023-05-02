@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class SalesRepository implements ISalesRepository
@@ -31,15 +30,11 @@ class SalesRepository implements ISalesRepository
     /**
      * This method returns a collection of top five salespersons by profit in a given date range.
      *
-     * @param string $startDate The start date of the range
-     * @param string $endDate The end date of the range
      * @return Collection The collection of salespersons with their name and total profit
      */
-    public function getTopSalespersonByProfit($startDate, $endDate): Collection
+    public function getTopSalespersonByProfit(): Collection
     {
-        return User::withSum(['sales' => function ($query) use ($startDate, $endDate) {
-            $query->whereBetween('date', [$startDate, $endDate]);
-        }], 'profit')
+        return User::withSum(['sales'], 'profit')
             ->orderByDesc('sales_sum_profit')
             ->take(5)
             ->get();
@@ -48,18 +43,12 @@ class SalesRepository implements ISalesRepository
     /**
      * This method returns a collection of top five supervisors by their team's total profit in a given date range.
      *
-     * @param string $startDate The start date of the range
-     * @param string $endDate The end date of the range
      * @return Collection The collection of supervisors with their name and team's total profit
      */
-    public function getTopSupervisorByTeamProfit($startDate, $endDate)
+    public function getTopSupervisorByTeamProfit()
     {
         return User::where('user_type', 'supervisor')
-            ->with(['supervisedSalespersons' => function ($query) use ($startDate, $endDate) {
-                $query->with(['sales' => function ($query) use ($startDate, $endDate) {
-                    $query->whereBetween('date', [$startDate, $endDate]);
-                }]);
-            }])
+            ->with(['supervisedSalespersons','sales'])
             ->take(5)
             ->get()
             ->map(function ($supervisor) {
@@ -75,7 +64,7 @@ class SalesRepository implements ISalesRepository
     /**
      * Retrieve all sales with quantity, profit, date, user name, and item name.
      *
-     * @return \Illuminate\Database\Eloquent\Collection|array
+     * @return Collection|array
      */
     public function index(): Collection|array
     {
@@ -88,7 +77,7 @@ class SalesRepository implements ISalesRepository
     /**
      * Retrieve all salespersons with their user name, sales details, and storage item name for the authenticated supervisor.
      *
-     * @return \Illuminate\Database\Eloquent\Collection|array
+     * @return Collection|array
      */
     public function show(): Collection|array
     {
@@ -98,8 +87,8 @@ class SalesRepository implements ISalesRepository
     /**
      * Validate and store a new sale in the database.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function store(Request $request): RedirectResponse
     {
@@ -137,8 +126,8 @@ class SalesRepository implements ISalesRepository
     /**
      * Delete a sale from the database.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function destroy(Request $request): RedirectResponse
     {
@@ -157,7 +146,7 @@ class SalesRepository implements ISalesRepository
     /**
      * Retrieve all sales with profit and date for the authenticated user.
      *
-     * @return \Illuminate\Database\Eloquent\Collection|array
+     * @return Collection|array
      */
     public function getMySales(): Collection|array
     {

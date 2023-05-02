@@ -114,7 +114,7 @@ class UsersRepository implements IUsersRepository
      *
      * @return Collection The collection of supervisors and salespersons with their name and user type
      */
-    public function getGroups()
+    public function getGroups(): Collection
     {
         return User::where('user_type', 'supervisor')
             ->with(['supervisedSalespersons' => function ($query) {
@@ -127,7 +127,7 @@ class UsersRepository implements IUsersRepository
      *
      * @return Collection The collection of salespersons with their ID and name
      */
-    public function getUnsupervisedSalesPersons()
+    public function getUnsupervisedSalesPersons(): Collection
     {
         return User::whereDoesntHave('supervisorSalespersons')
             ->where('user_type', 'salesPerson')

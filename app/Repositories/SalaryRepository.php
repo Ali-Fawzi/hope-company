@@ -55,7 +55,7 @@ class SalaryRepository implements ISalaryRepository
      * @param Request $request The request object containing the optional user type filter
      * @return Collection The collection of users without a salary
      */
-    public function getUsersWithoutSalary(Request $request)
+    public function getUsersWithoutSalary(Request $request): Collection
     {
         $user_type = $request->input('user_type');
 
