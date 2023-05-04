@@ -17,7 +17,7 @@
             @auth
                 <a href="{{ route(Auth::user()->user_type.'.dashboard') }}">
                     <x-primary-button>
-                        {{ __('الصفحة الرئيسية') }}
+                        {{ __('صفحة الادارة') }}
                     </x-primary-button>
                 </a>
             @else
