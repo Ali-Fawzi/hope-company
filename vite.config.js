@@ -7,6 +7,8 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
+                'resources/js/managerDashboardCharts.js',
+                'resources/js/delete&edit_manager.js'
             ],
             refresh: true,
         }),
